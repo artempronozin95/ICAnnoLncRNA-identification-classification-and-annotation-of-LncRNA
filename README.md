@@ -33,3 +33,11 @@ After these steps all necessary packages are installed. If you need update packa
         + --use-conda - Use additional conda environment.
    4. Recomendent run: 
         `snakemake -j 2 --use-conda`
+## Models:
+    + Zea_mays
+    + Arabidopsis_thaliana
+
+## LncRNA structure information:
+    + Zea_mays
+    + Arabidopsis_thaliana
+    + Oryza_sativa
