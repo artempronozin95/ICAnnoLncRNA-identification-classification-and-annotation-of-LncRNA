@@ -12,17 +12,17 @@
 Pipeline for automatic identification, classification and annotation of plant lncRNAs based on their localization in the genome.
 The pipeline includes the following steps: 
 #### 1. Pre-processing.
-    + Gmap index building.
-    + LncFinder model building.
++ Gmap index building.
++ LncFinder model building.
 #### 2. LncRNA filtering.
-    + LncFinder predicting.
-    + CPC2 predicting.
-    + ORF detection.
-    + Transmembrane domains detection.
-    + GMAP alignment on reference genome.
++ LncFinder predicting.
++ CPC2 predicting.
++ ORF detection.
++ Transmembrane domains detection.
++ GMAP alignment on reference genome.
 #### 3. LncRNA annotation.
-    + Classification gffcompare.
-    + Blastn alignment.
++ Classification gffcompare.
++ Blastn alignment.
 The pipeline is implemented using the workflow management system Snakemake, which provides ability to platform-independent installation and execution of the software.
 
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
@@ -51,14 +51,14 @@ It is nessesary install download CPC2 program in pipeline folder (https://github
 +tissue:
   + organism: - choose between organisms in "Tissue analysis" or input your organism.
 ## Work start:
-   1. `snakemake -j 2`
+  #### 1. `snakemake -j 2`
         + j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
-   2. `snakemake -nr` 
+  #### 2. `snakemake -nr` 
         + n - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
         + r - Print the reason for each executed rule.
-   3. `snakemake --use-conda`
+  #### 3. `snakemake --use-conda`
         + --use-conda - Use additional conda environment.
-   4. Recomendent run: 
+  #### 4. Recomendent run: 
         `snakemake -j 2 --use-conda`
 ## Models:
 + *Zea_mays*
