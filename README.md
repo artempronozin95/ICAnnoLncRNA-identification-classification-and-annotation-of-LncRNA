@@ -12,8 +12,8 @@ After these steps all necessary packages are installed. If you need update packa
 + sequence: - sequences that need to study
 + structure: - need to choose use secondary structure in model building or not. Choose between DNA or SS (secondary structure).
 + gmap:
-+ + gff_reference: - gff file of reference genome.
-+ + reference: - reference genome in fasta format.
+  + gff_reference: - gff file of reference genome.
+  + reference: - reference genome in fasta format.
         out: - output file.
     gff: - gff file of reference genome.
     diamond: - alignment of lncRNA on proteine database (recomendent to run after main pipeline)
