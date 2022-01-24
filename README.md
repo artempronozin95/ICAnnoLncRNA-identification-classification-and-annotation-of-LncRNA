@@ -1,6 +1,6 @@
 # ICAnnoLncRNA - identification, classification and annotation of LncRNA
 Pipeline for automatic identification, classification and annotation of plant lncRNAs based on their localization in the genome.
-![Test Image 1](file:///home/pronozin/%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8/Pipeline.png)
+![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 ## Before work start, create environment:
     1. Open folder env
     2. conda env create --file env/programs.yaml
