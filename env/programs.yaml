@@ -1,0 +1,25 @@
+name: pipeline
+channels:
+  - heyarti
+  - bioconda
+  - conda-forge
+  - defaults
+  - r
+dependencies:
+  - readr=2.1.1
+  - emboss=6.6.0
+  - gmap=2020.10.14
+  - gffcompare=0.11.2
+  - bedops=2.4.39
+  - snakemake=6.0.0
+  - r-lncfinder=1.1.4
+  - libgfortran
+  - python=3.8
+  - pip
+  - pip:
+    - pandas
+    - more-itertools
+    - biopython
+    - matplotlib
+    - gtfparse
+

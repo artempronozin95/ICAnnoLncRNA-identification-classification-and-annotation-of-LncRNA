@@ -1,0 +1,11 @@
+name: alignment
+channels:
+  - bioconda
+dependencies:
+  - blast
+  - diamond
+  - pip
+  - pip:
+    - pandas
+    - biopython
+    - matplotlib

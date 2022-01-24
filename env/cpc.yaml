@@ -1,0 +1,9 @@
+name: cpc2
+channels:
+  - conda-forge
+  - bioconda
+  - cbp44
+  - defaults
+dependencies:
+  - cpc2=2.0b
+
