@@ -14,12 +14,22 @@ After these steps all necessary packages are installed. If you need update packa
 + gmap:
   + gff_reference: - gff file of reference genome.
   + reference: - reference genome in fasta format.
-        out: - output file.
-    gff: - gff file of reference genome.
-    diamond: - alignment of lncRNA on proteine database (recomendent to run after main pipeline)
-        option: - "on" (activate alignment step) or "off" (deactivate alignment step)
-        database: - proteine database.
-        query: - lncRNA
-        out: - output file in outfmt6 format.
-    tissue:
-        organism: - choose between organisms in "Tissue analysis" or input your organism.
+  + out: - output file.
++ gff: - gff file of reference genome.
++ diamond: - alignment of lncRNA on proteine database (recomendent to run after main pipeline)
+  + option: - "on" (activate alignment step) or "off" (deactivate alignment step)
+  + database: - proteine database.
+  + query: - lncRNA
+  + out: - output file in outfmt6 format.
++tissue:
+  + organism: - choose between organisms in "Tissue analysis" or input your organism.
+## Work start:
+   1. `snakemake -j 2`
+        + j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
+   2. `snakemake -nr` 
+        + n - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
+        + r - Print the reason for each executed rule.
+   3. `snakemake --use-conda`
+        + --use-conda - Use additional conda environment.
+   4. Recomendent run: 
+        `snakemake -j 2 --use-conda`
