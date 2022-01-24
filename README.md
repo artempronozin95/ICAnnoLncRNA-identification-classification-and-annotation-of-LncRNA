@@ -2,7 +2,7 @@
 ## Table of contents
 * [Introduction](#icannolncrna-identification-classification-and-annotation-of-lncrna)
 * [Environment](#before-work-start-create-environment)
-* [Configuration](#input-all-necessary-files-into-configuration-file-“config.yaml”)
+* [Configuration](#input-all-necessary)
 * [Running the pipeline](#work-start)
 * [Models](#models)
 * [Structure information](#lncrna-structure-information)
