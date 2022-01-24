@@ -2,7 +2,7 @@
 ## Table of contents
 * [Introduction](#icannolncrna-identification-classification-and-annotation-of-lncrna)
 * [Environment](#before-work-start-create-environment)
-* [Configuration](#input all necessary files into configuration)
+* [Configuration](#input-all-necessary-files-into-configuration)
 * [Running the pipeline](#work-start)
 * [Models](#models)
 * [Structure information](#lncrna-structure-information)
