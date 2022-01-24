@@ -67,15 +67,16 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
 + *Arabidopsis_thaliana*
 
 ## LncRNA structure information:
+
 + *Zea_mays*
 + *Arabidopsis_thaliana*
 + *Oryza_sativa*
 
 ## Known LncRNA for database:
-Folder data/referencedata_index containe lncRNA library that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA)
+Folder `data/referencedata_index` containe lncRNA library that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA)
 
 ## Tissue analysis:
-File tissue/SRX_all_org.tsv, contain information about transcript experiment libraries respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
+File `tissue/SRX_all_org.tsv`, contain information about transcript experiment libraries respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
 + HV - *Hordeum vulgare*
 + OS - *Oryza sativa*
 + SL - *Solanum lycopersicum*
