@@ -121,6 +121,7 @@ A typical structure of `Output` is follows:
         │   └── transc_non.csv
         ├── tmhmm.csv
         └── trans.csv
+        
 * Folder "class", containe lncRNA class destribution.
 * Folder "piep", containe lncRNA and proteine coding genes destribution after prediction.
 * Folder "tissue", containe lncRNA destribution in tissue.
