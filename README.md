@@ -11,19 +11,20 @@
 ## ICAnnoLncRNA - identification, classification and annotation of LncRNA
 Pipeline for automatic identification, classification and annotation of plant lncRNAs based on their localization in the genome.
 The pipeline includes the following steps: 
-1. Pre-processing.
+# 1. Pre-processing.
     + Gmap index building.
     + LncFinder model building.
-2. LncRNA filtering.
+# 2. LncRNA filtering.
     + LncFinder predicting.
     + CPC2 predicting.
     + ORF detection.
     + Transmembrane domains detection.
     + GMAP alignment on reference genome.
-3. LncRNA annotation.
+# 3. LncRNA annotation.
     + Classification gffcompare.
     + Blastn alignment.
 The pipeline is implemented using the workflow management system Snakemake, which provides ability to platform-independent installation and execution of the software.
+
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 ## Before work start, create environment:
     1. Open folder env
