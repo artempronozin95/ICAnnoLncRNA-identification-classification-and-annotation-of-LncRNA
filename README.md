@@ -81,3 +81,57 @@ File tissue/SRX_all_org.tsv, contain information about transcript experiment lib
 + ST - *Solanum tuberosum*
 + ZM - *Zea mays*
 Or input your organism in same format file.
+## Output:
+output/
+├── alignm.bed
+├── alignm_filter.gff
+├── anti.png                                                                                                                         
+├── blast.outfmt6                                                                                                                    
+├── class                                                                                                                            
+│   ├── class_across_org.py                                                                                                          
+│   ├── class_org.png                                                                                                                                             
+├── classes.png                                                                                                                      
+├── Coding.fasta                                                                                                                     
+├── cpc.txt
+├── exon_size.png
+├── filter_alignm.bed
+├── gffcmp.alignm_filter.gff.refmap
+├── gffcmp.alignm_filter.gff.tmap
+├── gffcmp.annotated.gtf
+├── gffcmp.loci
+├── gffcmp.stats
+├── gffcmp.tracking
+├── gmap_build.err.log
+├── gmap_build.out.log
+├── gmap.out.log
+├── intron_size.png
+├── itron_coordin.tsv
+├── lncFinder_train.csv
+├── multiple
+│   ├── age.tsv
+├── new_lncrna.fasta
+├── Noncoding.fasta
+├── Noncoding_trans_out.fasta
+├── not_trans.csv
+├── number_of_exon.png
+├── number_of_lncRNA.png
+├── ORF.orf
+├── piep
+│   ├── piep.png
+│   ├── piep.py
+│   ├── run.sh
+├── reference.bed
+├── statistic_bed.tsv
+├── statistic.csv
+├── tissue
+│   ├── tissue_org.csv
+│   ├── tissue_org.png
+│   ├── transc_cod.csv
+│   ├── transc.csv
+│   └── transc_non.csv
+├── tmhmm.csv
+└── trans.csv
+
+
+
+
