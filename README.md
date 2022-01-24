@@ -1,5 +1,6 @@
-[Introduction](#ICAnnoLncRNA - identification, classification and annotation of LncRNA)
-### ICAnnoLncRNA - identification, classification and annotation of LncRNA
+
+* [Introduction](#ICAnnoLncRNA - identification, classification and annotation of LncRNA)
+## ICAnnoLncRNA - identification, classification and annotation of LncRNA
 Pipeline for automatic identification, classification and annotation of plant lncRNAs based on their localization in the genome.
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 ## Before work start, create environment:
