@@ -1,0 +1,23 @@
+lnc:
+   "data/input/lincrna.fasta"
+cds:
+   "data/input/7000_len_mRNA.fasta"
+model:
+   "Zea_mays"
+sequence:
+   "data/input/Zea.fasta"
+structure:
+   "DNA"
+gmap: 
+    gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"
+    reference: "data/reference/Zea_mays.AGPv4.dna.toplevel.fa"
+    out: "data/output/alignm.gff"
+gff:
+    "data/reference/Zea_mays.AGPv4.40.gff"
+diamond:
+    option: "off"
+    database: "data/reference/data_base/Arabidopsis_thaliana.TAIR10.pep.all.fa"
+    query: "data/output/unknown.fasta"
+    out: "data/output/diamond.outfmt6"
+tissue:
+    organism: "ZM"
