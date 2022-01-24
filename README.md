@@ -53,14 +53,14 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
   + organism: - choose between organisms in "Tissue analysis" or input your organism.
 ## Work start:
   #### 1. `snakemake -j 2`
-        + j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
+  j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
   #### 2. `snakemake -nr` 
-        + n - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
-        + r - Print the reason for each executed rule.
+  n - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
+  r - Print the reason for each executed rule.
   #### 3. `snakemake --use-conda`
-        + --use-conda - Use additional conda environment.
+  use-conda - Use additional conda environment.
   #### 4. Recomendent run: 
-        `snakemake -j 2 --use-conda`
+  `snakemake -j 2 --use-conda`
 ## Models:
 + *Zea_mays*
 + *Arabidopsis_thaliana*
