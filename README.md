@@ -84,6 +84,7 @@ File tissue/SRX_all_org.tsv, contain information about transcript experiment lib
 Or input your organism in same format file.
 ## Output:
 A typical structure of `Output` is follows:
+
     output/
         ├── alignm.bed
         ├── alignm_filter.gff
