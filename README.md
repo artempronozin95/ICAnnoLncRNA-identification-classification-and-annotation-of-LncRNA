@@ -23,6 +23,7 @@ The pipeline includes the following steps:
 #### 3. LncRNA annotation.
 + Classification gffcompare.
 + Blastn alignment.
+
 The pipeline is implemented using the workflow management system Snakemake, which provides ability to platform-independent installation and execution of the software.
 
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
