@@ -30,14 +30,15 @@ The pipeline includes the following steps:
 The pipeline is implemented using the workflow management system [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), which provides ability to platform-independent installation and execution of the software.
 
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
-## Before work start, create environment:
+## Before work start, create environment
     1. Open folder env
     2. conda env create --file env/programs.yaml
     3. conda activate pipeline
 After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - snakemake=4.0.1 -> snakemake=6.0.0), then “conda env update --file env/programs.yaml”. All necessary packages will be updated. 
 It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) program in pipeline folder.
 ## Input
-# Configuration file “config.yaml”:
+### Configuration file
+Input all necessary files into configuration file “config.yaml”:
 + lnc: - known LncRNA sequences of studied organisms.
 + cds: - known CDS (coding) sequences of studied organisms.
 + model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder)
@@ -55,8 +56,20 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
   + out: - output file in outfmt6 format.
 +tissue:
   + organism: - choose between organisms in "Tissue analysis" or input your organism.
-# Folders
-## Work start:
+### Folders
+#### data/input
+Contain: 
++ known LncRNA sequences of studied organisms.
++ known coding sequences of studied organisms.
++ sequences that need to study.
+#### data/reference
+Contain:
++ reference genome of studied organism in 'fasta' format.
++ annotation of studied organism in 'gff/gtf' format.
++ `data_index` folder with library of known lncRNA from databases.
++ `intron_data` folder with structure information of organisms.
++ `models` folder with model for lncFinder.
+## Work start
   #### 1. `snakemake -j 2`
   j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
   #### 2. `snakemake -nr` 
@@ -66,20 +79,19 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
   use-conda - Use additional conda environment.
   #### 4. Recomendent run: 
   `snakemake -j 2 --use-conda`
-## Models:
+## Models
 + *Zea_mays*
 + *Arabidopsis_thaliana*
 
-## LncRNA structure information:
-
+## LncRNA structure information
 + *Zea_mays*
 + *Arabidopsis_thaliana*
 + *Oryza_sativa*
 
-## Known LncRNA for database:
+## Known LncRNA for database
 Folder `data/reference/data_index` containe lncRNA library that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA)
 
-## Tissue analysis:
+## Tissue analysis
 File `tissue/SRX_all_org.tsv`, contain information about transcript experiment libraries respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
 + HV - *Hordeum vulgare*
 + OS - *Oryza sativa*
@@ -87,7 +99,7 @@ File `tissue/SRX_all_org.tsv`, contain information about transcript experiment l
 + ST - *Solanum tuberosum*
 + ZM - *Zea mays*
 Or input your organism in same format file.
-## Output:
+## Output
 A typical structure of `Output` is follows:
 
     output/
