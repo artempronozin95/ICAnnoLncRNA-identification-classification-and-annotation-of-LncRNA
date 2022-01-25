@@ -2,7 +2,9 @@
 ## Table of contents
 * [Introduction](#identification-classification-and-annotation-of-lncrna)
 * [Environment](#before-work-start-create-environment)
-* [Configuration](#input-all-necessary-files-into-configuration)
+* [Input](#input)
+  * [Configuration](#configuration-file)
+  * [Folders](#folders)
 * [Running the pipeline](#work-start)
 * [Models](#models)
 * [Structure information](#lncrna-structure-information)
@@ -34,7 +36,8 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
     3. conda activate pipeline
 After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - snakemake=4.0.1 -> snakemake=6.0.0), then “conda env update --file env/programs.yaml”. All necessary packages will be updated. 
 It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) program in pipeline folder.
-## Input all necessary files into configuration file “config.yaml”:
+## Input
+# Configuration file “config.yaml”:
 + lnc: - known LncRNA sequences of studied organisms.
 + cds: - known CDS (coding) sequences of studied organisms.
 + model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder)
@@ -52,6 +55,7 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
   + out: - output file in outfmt6 format.
 +tissue:
   + organism: - choose between organisms in "Tissue analysis" or input your organism.
+# Folders
 ## Work start:
   #### 1. `snakemake -j 2`
   j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
