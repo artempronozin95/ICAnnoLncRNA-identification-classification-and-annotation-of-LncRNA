@@ -1,7 +1,7 @@
 
 ## Table of contents
 * [Introduction](#identification-classification-and-annotation-of-lncrna)
-* [Environment](#before-work-start-create-environment)
+* [Installation ](#before-work-start-create-environment)
 * [Input](#input)
   * [Configuration](#configuration-file)
   * [Folders](#folders)
@@ -30,7 +30,7 @@ The pipeline includes the following steps:
 The pipeline is implemented using the workflow management system [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), which provides ability to platform-independent installation and execution of the software.
 
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
-## Before work start, create environment
+## Installation 
     1. Open folder env
     2. conda env create --file env/programs.yaml
     3. conda activate pipeline
@@ -39,23 +39,23 @@ It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) progra
 ## Input
 ### Configuration file
 Input all necessary files into configuration file “config.yaml”:
-+ lnc: - known LncRNA sequences of studied organisms.
-+ cds: - known CDS (coding) sequences of studied organisms.
-+ model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder)
-+ sequence: - sequences that need to study
++ lnc: - known LncRNA sequences of studied organisms in FASTA format.
++ cds: - known CDS (coding) sequences of studied organisms in FASTA format.
++ model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder). Model that exist represented in [Models](#models).
++ sequence: - sequences that need to study in FASTA format
 + structure: - need to choose use secondary structure in model building or not. Choose between DNA or SS (secondary structure).
 + gmap:
-  + gff_reference: - gff file of reference genome.
-  + reference: - reference genome in fasta format.
+  + gff_reference: - reference genome annotation in GFF format.
+  + reference: - reference genome in FASTA format.
   + out: - output file.
 + gff: - gff file of reference genome.
 + diamond: - alignment of lncRNA on proteine database (recomendent to run after main pipeline)
   + option: - "on" (activate alignment step) or "off" (deactivate alignment step)
-  + database: - proteine database.
-  + query: - lncRNA
+  + database: - proteine database in FASTA format.
+  + query: - lncRNA transcripts in FASTA format.
   + out: - output file in outfmt6 format.
 +tissue:
-  + organism: - choose between organisms in "Tissue analysis" or input your organism.
+  + organism: - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism.
 ### Folders
 #### data/input
 Contain: 
