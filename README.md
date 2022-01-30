@@ -35,7 +35,9 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
     2. conda env create --file env/programs.yaml
     3. conda activate pipeline
 After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - snakemake=4.0.1 -> snakemake=6.0.0), then “conda env update --file env/programs.yaml”. All necessary packages will be updated. 
-It is nessesary install download [CPC2](https://github.com/biocoder/CPC2) program in pipeline folder.
+It is nessesary to install (download program in pipeline folder): 
++ [CPC2](https://github.com/biocoder/CPC2)
++ [TMHMM](https://services.healthtech.dtu.dk/service.php?TMHMM-2.0)
 ## Input
 ### Configuration file
 Input all necessary files into configuration file “config.yaml”:
