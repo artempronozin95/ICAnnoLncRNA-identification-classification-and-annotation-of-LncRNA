@@ -1,7 +1,7 @@
 
 ## Table of contents
 * [Introduction](#identification-classification-and-annotation-of-lncrna)
-* [Installation ](#before-work-start-create-environment)
+* [Installation](#installation)
 * [Input](#input)
   * [Configuration](#configuration-file)
   * [Folders](#folders)
