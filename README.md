@@ -54,7 +54,7 @@ Input all necessary files into configuration file “config.yaml”:
   + database: - proteine database in FASTA format.
   + query: - lncRNA transcripts in FASTA format.
   + out: - output file in outfmt6 format.
-+tissue:
++ tissue:
   + organism: - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism.
 ### Folders
 #### data/input
