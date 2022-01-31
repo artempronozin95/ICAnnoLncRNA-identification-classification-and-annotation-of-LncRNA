@@ -1,4 +1,3 @@
-
 ## Table of contents
 * [Introduction](#identification-classification-and-annotation-of-lncrna)
 * [Installation](#installation)
