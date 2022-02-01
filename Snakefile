@@ -96,7 +96,7 @@ rule cpc:
     conda:
         "env/cpc.yaml"
     shell:
-        "CPC2-beta/bin/CPC2.py -i {input} -r -o data/output/cpc"
+        "CPC2/bin/CPC2.py -i {input} -r -o data/output/cpc"
         
 rule take_noncoding:
     input:
