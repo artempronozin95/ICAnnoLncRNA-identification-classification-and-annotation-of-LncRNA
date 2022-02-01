@@ -19,7 +19,7 @@ test <- run_RNAfold(seq, RNAfold.path = RNAfold.path, parallel.cores = 40)
 result_2 <- lnc_finder(test, SS.features = TRUE, format = "SS",
 frequencies.file = frequencies, svm.model = model,
 parallel.cores = 2)
-write.table(result_2, file=paste(args[3],'/lncFinder_train.csv',sep=""), append=T, col.names=F, sep = ",")
+write.table(result_2, file=paste(args[3],'/lncFinder.csv',sep=""), append=T, col.names=F, sep = ",")
 print("loop done")
 }
 } else {
@@ -29,7 +29,7 @@ test <- run_RNAfold(seq, RNAfold.path = RNAfold.path, parallel.cores = 40)
 result_2 <- lnc_finder(test, SS.features = TRUE, format = "SS",
 frequencies.file = frequencies, svm.model = model,
 parallel.cores = 2)
-write.table(result_2, file=paste(args[3],'/lncFinder_train.csv',sep=""), col.names=F, sep = ',')
+write.table(result_2, file=paste(args[3],'/lncFinder.csv',sep=""), col.names=F, sep = ',')
 print("no loop")
 }
 } else {
@@ -44,7 +44,7 @@ seq <- read.fasta(w)
 result_2 <- lnc_finder(seq, SS.features = FALSE, format = "DNA",
 frequencies.file = frequencies, svm.model = model,
 parallel.cores = 2)
-write.table(result_2, file=paste(args[3],'/lncFinder_train.csv',sep=""), append=T, col.names=F, sep = ",")
+write.table(result_2, file=paste(args[3],'/lncFinder.csv',sep=""), append=T, col.names=F, sep = ",")
 print("loop done")
 }
 } else {
@@ -53,7 +53,7 @@ seq <- read.fasta(args[2])
 result_2 <- lnc_finder(seq, SS.features = FALSE, format = "DNA",
 frequencies.file = frequencies, svm.model = model,
 parallel.cores = 2)
-write.table(result_2, file=paste(args[3],'/lncFinder_train.csv',sep=""), col.names=F, sep = ',')
+write.table(result_2, file=paste(args[3],'/lncFinder.csv',sep=""), col.names=F, sep = ',')
 print("no loop")
 }
 }
