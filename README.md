@@ -158,7 +158,7 @@ Groups of output files
 + `number_of_lncRNA.png` - lncRNA distribution across chromosome.                                                                                                 
 
 **Prediction:**
-+ `lncFinder_train.csv` - Transcripts predicted as lncRNA by lncFinder. 
++ `lncFinder.csv` - Transcripts predicted as lncRNA by lncFinder. 
 + `cpc.txt` - Transcripts predicted as lncRNA by CPC2.
 + `Coding.fasta` - Transcripts predicted as protein coding by lncFinder, `FASTA` format. 
 + `Noncoding.fasta` - Transcripts predicted as lncRNA by lncFinder, `FASTA` format. 
