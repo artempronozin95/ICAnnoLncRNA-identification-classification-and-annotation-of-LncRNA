@@ -32,7 +32,7 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ## Installation 
     1. Open folder env
     2. conda env create --file ./programs.yaml
-    3. conda activate pipeline
+    3. conda activate ICAnnoLncRNA
 After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - snakemake=4.0.1 -> snakemake=6.0.0), then “conda env update --file ./programs.yaml”. All necessary packages will be updated. 
 More detailed description provided [here](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/env/Dependencies%20information.md)
 
@@ -129,8 +129,8 @@ A typical structure of `Output` is follows:
         ├── number_of_exon.png
         ├── number_of_lncRNA.png
         ├── ORF.orf
-        ├── piep
-        │   ├── piep.png
+        ├── pipe
+        │   ├── pipe.png
         ├── reference.bed
         ├── statistic_bed.tsv
         ├── statistic.csv
@@ -144,33 +144,42 @@ A typical structure of `Output` is follows:
         └── trans.csv
         
 * Folder "class", containe lncRNA class destribution.
-* Folder "piep", containe lncRNA and proteine coding genes destribution after prediction.
+* Folder "pipe", containe lncRNA and proteine coding genes destribution after prediction.
 * Folder "tissue", containe lncRNA destribution in tissue.
 
-**output**:
-+ `alignm.bed` - results of GMAP alignment in 'bed' format.
-+ `alignm_filter.gff` - filter of long intron sequences.
-+ `anti.png` - antisense lncRNA distribution.                                                                                                                     
-+ `blast.outfmt6` - BLASTn results in 'outfmt6' format.
-+ `classes.png` - containe lncRNA class distribution.                                                                                                             
-+ `Coding.fasta` - All protein coding sequences in `fasta` format.                                                                                                 
-+ `cpc.txt` - lncRNA predicted by CPC2.
-+ `exon_size.png` - lncRNA exon size distribution.
-+ `gffcmp.alignm_filter.gff.tmap` - lncRNA classification by gffcompare in 'tmap' format.
-+ `gffcmp.loci` - lncRNA locus.
-+ `intron_size.png` - lncRNA intor size distribution.
-+ `itron_coordin.tsv` - introns of lncRNA coordinates on reference genome.
-+ `lncFinder_train.csv` -lncRNA predicted by lncFinder.
-+ `new_lncrna.fasta` - Classified lncRNA sequences in `fasta` format.
-+ `Noncoding.fasta` - All lncRNA sequences in `fasta` format.
-+ `Noncoding_trans_out.fasta` -lncRNA without sequences with transmembrane domains in `fasta` format.
-+ `not_trans.csv` - id sequences without transmembrane domains.
-+ `number_of_exon.png` - number of lncRNA exon distribution across one lncRNA.
-+ `number_of_lncRNA.png` - lncRNA distribution across chromosome.
-+ `ORF.orf` - reading frames of predicted lncRNA.
-+ `reference.bed` - reference genome annotation in 'bed' format.
-+ `statistic_bed.tsv` - lncRNA intron statistic.
-+ `statistic.csv` - lncRNA structure statistic.
-+ `tmhmm.csv` - TMHMM results.
-+ `trans.csv` - id sequences with transmembrane domains.
+Groups of output files
 
+**Image:** 
++ `intron_size.png` - lncRNA intor size distribution.
++ `classes.png` - lncRNA class distribution.    
++ `anti.png` - antisense lncRNA distribution.       
++ `exon_size.png` - lncRNA exon size distribution. 
++ `number_of_exon.png` - lncRNA exon distribution across one lncRNA.
++ `number_of_lncRNA.png` - lncRNA distribution across chromosome.                                                                                                 
+
+**Prediction:**
++ `lncFinder_train.csv` - Transcripts predicted as lncRNA by lncFinder. 
++ `cpc.txt` - Transcripts predicted as lncRNA by CPC2.
++ `Coding.fasta` - Transcripts predicted as protein coding by lncFinder, `FASTA` format. 
++ `Noncoding.fasta` - Transcripts predicted as lncRNA by lncFinder, `FASTA` format. 
+
+**Transmembrane segment:**
++ `not_trans.csv` - id of transcripts without transmembrane domains.
++ `ORF.orf` - reading frames of predicted lncRNA, `ORF` format.
++ `trans.csv` - id of transcripts with transmembrane domains.
++ `tmhmm.csv` - TMHMM results, `CSV` format.
++ `Noncoding_trans_out.fasta` -set of lncRNA transcripts without transcripts with transmembrane domains, `FASTA` format.
+
+**Alignment:**                                                                                         
++ `alignm.bed` - results of lncRNA transcripts alignment on reference genome by GMAP, 'BED' format.
++ `alignm_filter.gff` - results of lncRNA transcripts alignment on reference genome witout long intron transcripts, `GFF` format.
++ `itron_coordin.tsv` - coordinates lncRNA introns, `TSV` format.
++ `statistic_bed.tsv` - lncRNA intron statistic.
++ `statistic.csv` - lncRNA structure statistic, `CSV` format.
++ `blast.outfmt6` - BLASTn results in `outfmt6` format.
+
+**Classification:**
++ `gffcmp.alignm_filter.gff.tmap` - lncRNA classification by gffcompare, 'tmap' format.
++ `gffcmp.loci` - lncRNA loci.
++ `reference.bed` - reference genome annotation, 'BED' format.
++ `new_lncrna.fasta` - classified lncRNA transcripts,`FASTA` format.
