@@ -66,25 +66,33 @@ It is necessary to install (download program in pipeline folder):
 11. save.
 ```
 ## Input
+### Genome sequence
+1. Known LncRNA transcripts of the species in `FASTA` format.
+2. Known protein coding sequences of the species in `FASTA` format.
+3. RNA-seq transcripts of the species in `FASTA` format.
+### Reference genome
+1. Reference genome of the species in `FASTA` format.
+2. Annotation of the species in `GFF/GTF` format.
+
 ### Configuration file
 Input all necessary files into configuration file “config.yaml”:
-+ lnc: - known LncRNA sequences of studied organisms in FASTA format.
-+ cds: - known CDS (coding) sequences of studied organisms in FASTA format.
-+ model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder). Model that exist represented in [Models](#models).
-+ sequence: - sequences that need to study in FASTA format
-+ structure: - need to choose use secondary structure in model building or not. Choose between DNA or SS (secondary structure).
++ lnc: - known LncRNA sequences of studied organisms in FASTA format. (Example: `lnc: "data/input/lincrna.fasta"`)
++ cds: - known CDS (coding) sequences of studied organisms in FASTA format. (Example: `cds: "data/input/7000_len_mRNA.fasta"`)
++ model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder). Model that exist represented in [Models](#models). (Example: `model: "Zea_mays"`)
++ sequence: - sequences that need to study in FASTA format (Example: `sequence: "data/input/Zea.fasta"`)
++ structure: - need to choose use secondary structure in model building or not. Choose between DNA or SS (secondary structure). (Example: `structure: "DNA"`)
 + gmap:
-  + gff_reference: - reference genome annotation in GFF format.
-  + reference: - reference genome in FASTA format.
-  + out: - output file.
-+ gff: - gff file of reference genome.
+  + gff_reference: - reference genome annotation in GFF format. (Example: `gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"`)
+  + reference: - reference genome in FASTA format. (Example: `reference: "data/reference/Zea_mays.AGPv4.dna.toplevel.fa"`)
+  + out: - output file. (Example: `out: "data/output/alignm.gff"`)
++ gff: - gff file of reference genome. (Example: `gff: "data/reference/Zea_mays.AGPv4.40.gff"`)
 + diamond: - alignment of lncRNA on protein database (recommended to run after main pipeline)
-  + option: - "on" (activate alignment step) or "off" (deactivate alignment step)
-  + database: - protein database in FASTA format.
-  + query: - lncRNA transcripts in FASTA format.
-  + out: - output file in outfmt6 format.
+  + option: - "on" (activate alignment step) or "off" (deactivate alignment step) (Example:  `option: "off"`)
+  + database: - protein database in FASTA format. (Example: `database: "data/reference/data_base/Arabidopsis_thaliana.TAIR10.pep.all.fa"`)
+  + query: - lncRNA transcripts in FASTA format. (Example: `query: "data/output/unknown.fasta"`)
+  + out: - output file in outfmt6 format. (Example: `out: "data/output/diamond.outfmt6"`)
 + tissue:
-  + organism: - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism.
+  + organism: - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism. (Example: `organism: "ZM"`)
 ### Folders
 #### data/input
 Contain: 
