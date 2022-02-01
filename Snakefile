@@ -10,7 +10,7 @@ if config['diamond']['option'] == 'on':
         "data/output/cpc.txt",
         "data/input/test_train/best_model.txt",
         "data/output/Noncoding.fasta",
-        "data/output/lncFinder_train.csv",
+        "data/output/lncFinder.csv",
         "data/output/statistic.csv",
         "data/output/Noncoding_trans_out.fasta",
         "data/output/ORF.orf",
@@ -32,7 +32,7 @@ if config['diamond']['option'] == 'off':
         "data/input/test_train/sets.txt",
         "data/output/cpc.txt",
         "data/output/Noncoding.fasta",
-        "data/output/lncFinder_train.csv",
+        "data/output/lncFinder.csv",
         "data/output/statistic.csv",
         "data/input/test_train/best_model.txt",
         "data/output/Noncoding_trans_out.fasta",
@@ -84,7 +84,7 @@ rule lncFinder:
        expand("{sequence}", sequence=config['sequence']),
        ancient("data/output/")
     output:
-        "data/output/lncFinder_train.csv"
+        "data/output/lncFinder.csv"
     shell:
         "scripts/Chunk_dataframe.sh {input}"
 
@@ -100,7 +100,7 @@ rule cpc:
         
 rule take_noncoding:
     input:
-        ancient("data/output/lncFinder_train.csv"),
+        ancient("data/output/lncFinder.csv"),
         expand("{sequence}", sequence=config['sequence'])
     output:
         "data/output/Noncoding.fasta"
@@ -210,7 +210,7 @@ rule blast:
 rule tissue:
     input:
        blast="data/output/blast.outfmt6",
-       lnc="data/output/lncFinder_train.csv",
+       lnc="data/output/lncFinder.csv",
        new="data/output/new_lncrna.fasta"
     params:
        org=expand("{org}", org=config['tissue']['organism'])
