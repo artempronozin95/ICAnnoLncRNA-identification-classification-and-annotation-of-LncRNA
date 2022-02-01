@@ -1,4 +1,4 @@
-name: pipeline
+name: ICAnnoLncRNA
 channels:
   - heyarti
   - bioconda
