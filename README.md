@@ -67,53 +67,54 @@ It is necessary to install (download program in pipeline folder):
 ```
 ## Input
 ### Genome sequence
-1. Known LncRNA transcripts of the species in `FASTA` format.
-2. Known protein coding sequences of the species in `FASTA` format.
-3. RNA-seq transcripts of the species in `FASTA` format.
+1. Known LncRNA transcripts of the species in `FASTA` format. File with lncRNA from the public database of lncRNA. For example [Ensembl](https://www.ensembl.org/index.html), [EVLncRNAs v2](https://www.sdklab-biophysics-dzu.net/EVLncRNAs2/).
+2. Known protein coding sequences of the species in `FASTA` format. File with protein coding sequences from a public database. For example [Ensembl](https://www.ensembl.org/index.html).
+3. RNA-seq transcripts of the species in `FASTA` format. This file contains transcripts obtained after de novo assembly of transcriptome. For example file that we provide, [30k_zey.fasta](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/data/input/30k_zey.zip), obtained by [Trinity](https://github.com/trinityrnaseq/trinityrnaseq) assembly.
+All three sets are necessary for build 
 ### Reference genome
 1. Reference genome of the species in `FASTA` format.
 2. Annotation of the species in `GFF/GTF` format.
 
 ### Configuration file
 Input all necessary files into configuration file “config.yaml”:
-+ lnc: - known LncRNA sequences of studied organisms in FASTA format. (Example: `lnc: "data/input/lincrna.fasta"`)
-+ cds: - known CDS (coding) sequences of studied organisms in FASTA format. (Example: `cds: "data/input/7000_len_mRNA.fasta"`)
-+ model: - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create new one (in output folder). Model that exist represented in [Models](#models). (Example: `model: "Zea_mays"`)
-+ sequence: - sequences that need to study in FASTA format (Example: `sequence: "data/input/Zea.fasta"`)
-+ structure: - need to choose use secondary structure in model building or not. Choose between DNA or SS (secondary structure). (Example: `structure: "DNA"`)
++ `lnc:` - known LncRNA sequences of studied organisms in `FASTA` format. (Example: `lnc: "data/input/lincrna.fasta"`)
++ `cds:` - known CDS (coding) sequences of studied organisms in `FASTA` format. (Example: `cds: "data/input/7000_len_mRNA.fasta"`)
++ `model:` - pipeline check if model (lncFinder) for this organism already exist and use it, if it's not, pipeline will create a new one (in output folder). Model that exist represented in [Models](#models). (Example: `model: "Zea_mays"`)
++ `sequence:` - sequences that need to study in `FASTA` format (Example: `sequence: "data/input/Zea.fasta"`)
++ `structure:` - need to choose whether to use secondary structure in model building or not. Choose between `DNA` or `SS` (secondary structure). (Example: `structure: "DNA"`)
 + gmap:
-  + gff_reference: - reference genome annotation in GFF format. (Example: `gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"`)
-  + reference: - reference genome in FASTA format. (Example: `reference: "data/reference/Zea_mays.AGPv4.dna.toplevel.fa"`)
-  + out: - output file. (Example: `out: "data/output/alignm.gff"`)
-+ gff: - gff file of reference genome. (Example: `gff: "data/reference/Zea_mays.AGPv4.40.gff"`)
+  + `gff_reference:` - reference genome annotation in `GFF` format. (Example: `gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"`)
+  + `reference:` - reference genome in `FASTA` format. (Example: `reference: "data/reference/Zea_mays.AGPv4.dna.toplevel.fa"`)
+  + `out:` - output file. (Example: `out: "data/output/alignm.gff"`)
++ `gff:` - gff file of reference genome. (Example: `gff: "data/reference/Zea_mays.AGPv4.40.gff"`)
 + diamond: - alignment of lncRNA on protein database (recommended to run after main pipeline)
-  + option: - "on" (activate alignment step) or "off" (deactivate alignment step) (Example:  `option: "off"`)
-  + database: - protein database in FASTA format. (Example: `database: "data/reference/data_base/Arabidopsis_thaliana.TAIR10.pep.all.fa"`)
-  + query: - lncRNA transcripts in FASTA format. (Example: `query: "data/output/unknown.fasta"`)
-  + out: - output file in outfmt6 format. (Example: `out: "data/output/diamond.outfmt6"`)
+  + `option:` - "on" (activate alignment step) or "off" (deactivate alignment step) (Example:  `option: "off"`)
+  + `database:` - protein database in `FASTA` format. (Example: `database: "data/reference/data_base/Arabidopsis_thaliana.TAIR10.pep.all.fa"`)
+  + `query:` - lncRNA transcripts in `FASTA` format. (Example: `query: "data/output/unknown.fasta"`)
+  + `out:` - output file in `outfmt6` format. (Example: `out: "data/output/diamond.outfmt6"`)
 + tissue:
-  + organism: - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism. (Example: `organism: "ZM"`)
+  + `organism:` - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism. (Example: `organism: "ZM"`)
 ### Folders
 #### data/input
 Contain: 
-+ known LncRNA sequences of studied organisms.
-+ known coding sequences of studied organisms.
-+ sequences that need to study.
+1. Known LncRNA transcripts of the species in `FASTA` format.
+2. Known protein coding sequences of the species in `FASTA` format.
+3. RNA-seq transcripts of the species in `FASTA` format.
 #### data/reference
 Contain:
-+ reference genome of studied organism in 'fasta' format.
-+ annotation of studied organism in 'gff/gtf' format.
++ reference genome of studied organism in `FASTA` format.
++ annotation of studied organism in `GFF/GTF` format.
 + `data_index` folder with library of known lncRNA from databases.
 + `intron_data` folder with structure information of organisms.
 + `models` folder with model for lncFinder.
 ## Work start
   #### 1. `snakemake -j 2`
-  j or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
+  `-j` or  --cores -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
   #### 2. `snakemake -nr` 
-  n - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
-  r - Print the reason for each executed rule.
+  `-n` - Do not execute anything, and display what would be done. If you have a very large workflow, use –dry-run –quiet to just print a summary of the DAG of jobs.
+  `-r` - Print the reason for each executed rule.
   #### 3. `snakemake --use-conda`
-  use-conda - Use additional conda environment.
+  `--use-conda` - Use additional conda environment.
   #### 4. Recommended run: 
   `snakemake -j 2 --use-conda`
 ## Models
@@ -155,7 +156,7 @@ A typical structure of `Output` is follows:
         ├── gffcmp.loci
         ├── intron_size.png
         ├── itron_coordin.tsv
-        ├── lncFinder_train.csv
+        ├── lncFinder.csv
         ├── new_lncrna.fasta
         ├── Noncoding.fasta
         ├── Noncoding_trans_out.fasta
@@ -184,23 +185,23 @@ A typical structure of `Output` is follows:
 Groups of output files
 
 **Image:** 
-+ `intron_size.png` - lncRNA intor size distribution.
-+ `classes.png` - lncRNA class distribution.    
-+ `anti.png` - antisense lncRNA distribution.       
++ `intron_size.png` - lncRNA intron size distribution.
++ `classes.png` - distribution of lncRNA classes.    
++ `anti.png` - allocation of antisense lncRNA alignment to target gene structure.       
 + `exon_size.png` - lncRNA exon size distribution. 
-+ `number_of_exon.png` - lncRNA exon distribution across one lncRNA.
-+ `number_of_lncRNA.png` - lncRNA distribution across chromosome.                                                                                                 
++ `number_of_exon.png` - the ratio of the number of exons per lncRNA.
++ `number_of_lncRNA.png` - number of lncRNA per chromosome.                                                                                                 
 
 **Prediction:**
-+ `lncFinder.csv` - Transcripts predicted as lncRNA by lncFinder. 
-+ `cpc.txt` - Transcripts predicted as lncRNA by CPC2.
++ `lncFinder.csv` - Transcripts predicted as lncRNA by lncFinder, `CSV` format.
++ `cpc.txt` - Transcripts predicted as lncRNA by CPC2, `TXT` format.
 + `Coding.fasta` - Transcripts predicted as protein coding by lncFinder, `FASTA` format. 
 + `Noncoding.fasta` - Transcripts predicted as lncRNA by lncFinder, `FASTA` format. 
 
 **Transmembrane segment:**
-+ `not_trans.csv` - id of transcripts without transmembrane domains.
++ `not_trans.csv` - id of transcripts without transmembrane domains, `CSV` format.
 + `ORF.orf` - reading frames of predicted lncRNA, `ORF` format.
-+ `trans.csv` - id of transcripts with transmembrane domains.
++ `trans.csv` - id of transcripts with transmembrane domains, `CSV` format.
 + `tmhmm.csv` - TMHMM results, `CSV` format.
 + `Noncoding_trans_out.fasta` -set of lncRNA transcripts without transcripts with transmembrane domains, `FASTA` format.
 
@@ -208,12 +209,12 @@ Groups of output files
 + `alignm.bed` - results of lncRNA transcripts alignment on reference genome by GMAP, 'BED' format.
 + `alignm_filter.gff` - results of lncRNA transcripts alignment on reference genome without long intron transcripts, `GFF` format.
 + `itron_coordin.tsv` - coordinates lncRNA introns, `TSV` format.
-+ `statistic_bed.tsv` - lncRNA intron statistic.
++ `statistic_bed.tsv` - lncRNA intron statistic, `TSV` format.
 + `statistic.csv` - lncRNA structure statistic, `CSV` format.
 + `blast.outfmt6` - BLASTn results in `outfmt6` format.
 
 **Classification:**
-+ `gffcmp.alignm_filter.gff.tmap` - lncRNA classification by gffcompare, 'tmap' format.
++ `gffcmp.alignm_filter.gff.tmap` - lncRNA classification by gffcompare, `TMAP` format.
 + `gffcmp.loci` - lncRNA loci.
-+ `reference.bed` - reference genome annotation, 'BED' format.
++ `reference.bed` - reference genome annotation, `BED` format.
 + `new_lncrna.fasta` - classified lncRNA transcripts,`FASTA` format.
