@@ -14,6 +14,8 @@ dependencies:
   - snakemake=6.0.0
   - r-lncfinder=1.1.4
   - libgfortran
+  - blast
+  - diamond
   - python=3.8
   - pip
   - pip:
