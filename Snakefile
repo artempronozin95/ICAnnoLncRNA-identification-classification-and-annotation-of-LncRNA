@@ -204,6 +204,8 @@ rule blast:
     output:
        "data/output/new_lncrna.fasta",
        "data/output/blast.outfmt6"
+    conda:
+       "env/alignment.yaml"
     shell:
        "python scripts/blast.py {input} {output}"
 
@@ -233,6 +235,8 @@ if config['diamond']['option'] == 'on':
         expand("{query}", query=config['diamond']['query'])
      output:
         expand("{out}", out=config['diamond']['out'])
+     conda:
+       "env/alignment.yaml"
      shell:
         "python scripts/diamond.py {input}"
 elif config['diamond']['option'] == 'off':
