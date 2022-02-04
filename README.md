@@ -33,6 +33,7 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 
 ## Installation 
+# Automatic
 ```
 1. wget https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
 2. unzip main.zip
@@ -40,8 +41,16 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 4. conda env create --file env/programs.yaml
 5. conda activate ICAnnoLncRNA
 ```
-After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - `snakemake=4.0.1 -> snakemake=6.0.0`), then `conda env update --file ./programs.yaml`. All necessary packages will be updated. 
-More detailed infomation of packages that we used provided [here](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/env/Dependencies%20information.md)
+After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - `snakemake=4.0.1 -> snakemake=6.0.0`), then `conda env update --file ./programs.yaml`. All necessary packages will be updated. Recomended on clusters, requires a lot of  processing power.
+# Step method
+```
+1. conda update conda.
+2. conda create -n ICAnnoLncRNA python=3.6
+3. conda activate ICAnnoLncRNA
+4. conda install -c bioconda emboss
+5. install next packeges from file below
+```
+Install all packeges represented **[here](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/env/Dependencies%20information.md)**
 
 It is necessary to install (download program in pipeline folder): 
 + [CPC2](https://github.com/biocoder/CPC2)
