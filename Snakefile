@@ -130,7 +130,7 @@ rule tmhmm:
     output:
         "data/output/tmhmm.csv"
     shell:
-        "tmhmm/bin/tmhmm {input} > {output}"
+        "scripts/tmhmm.sh {input} > {output}"
 
 rule filter:
     input:
