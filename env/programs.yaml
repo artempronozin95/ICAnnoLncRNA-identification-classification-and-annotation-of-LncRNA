@@ -12,7 +12,7 @@ dependencies:
   - snakemake=6.0.0
   - r-lncfinder=1.1.4
   - libgfortran
-  - python=3.8
+  - python=3.6
   - pip
   - pip:
     - pandas
