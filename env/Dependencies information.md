@@ -48,6 +48,8 @@ Matplotlib is a comprehensive library for creating static, animated, and interac
 Parsing tools for GTF (gene transfer format) files.
 
 `conda install -c bioconda gtfparse`
+### [scikit]()
+`conda install -c anaconda scikit-learn`
 # cpc.yaml
 ## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
 Coding Potential Calculator (CPC), can assess the protein-coding potential of a transcript based on six biologically meaningful sequence features. Tenfold cross-validation on the training dataset and further testing on several large datasets showed that CPC can discriminate coding from noncoding transcripts with high accuracy.
