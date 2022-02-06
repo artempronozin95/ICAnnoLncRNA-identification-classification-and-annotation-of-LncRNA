@@ -27,6 +27,9 @@ Long non-coding RNAs identification and analysis. Default models are trained wit
 The libgfortran contains a Fortran shared library, needed to run Fortran dynamically-linked programs, required for the Vertica LAPACK library addition.
 
 `conda install -c conda-forge libgfortran`
+### [seqtk]()
+`conda install -c bioconda seqtk`
+
 ## Python
 ### [pandas](https://pandas.pydata.org)
 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language.
@@ -50,8 +53,7 @@ Parsing tools for GTF (gene transfer format) files.
 `conda install -c bioconda gtfparse`
 ### [scikit]()
 `conda install -c anaconda scikit-learn`
-### [seqtk]()
-`conda install -c bioconda seqtk`
+
 # cpc.yaml
 ## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
 Coding Potential Calculator (CPC), can assess the protein-coding potential of a transcript based on six biologically meaningful sequence features. Tenfold cross-validation on the training dataset and further testing on several large datasets showed that CPC can discriminate coding from noncoding transcripts with high accuracy.
