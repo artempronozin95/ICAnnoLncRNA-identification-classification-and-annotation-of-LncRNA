@@ -11,6 +11,7 @@
 * [Species](#species)
 * [Tissue analysis](#tissue-analysis)
 * [Output](#output)
+* [Errors](#errors)
 ## Introduction
 Long non-coding RNAs (lncRNAs) typically defined as transcripts of more than 200 nucleotides in length and without any protein coding potential. These RNAs are involved in important plant development processes such as phosphate homeostasis, flowering, photomorphogenesis and stress response. However, their structural and functional properties are not clear. Information about lncRNA sequences and their expression typically obtained from RNA-seq experiments. To process these data relevant tools for automated lncRNA are required. 
 Here we propose ICAnnoLncRNA, pipeline for automatic identification, classification and annotation of plant lncRNAs. ICAnnoLncRNA, work with RNA-seq data and it was tested on 877 transcriptome libraries of *Zea mays*.
@@ -264,3 +265,15 @@ Groups of output files
 + `gffcmp.loci` - lncRNA loci.
 + `reference.bed` - reference genome annotation, `BED` format.
 + `new_lncrna.fasta` - classified lncRNA transcripts,`FASTA` format.
+
+## Errors
+```
+rule model_lncFinder:
+    input: data/input/test_train/sets.txt                                    
+    output: data/input/test_train/dirs.txt                                                                                                            
+    jobid: 2    
+
+Activating conda environment /home/pronozin/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA-main/.snakemake/conda/767d2b45.
+/bin/bash: activate:
+```
+**Solution**: type `conda install conda` in ICAnnoLncRNA environment.
