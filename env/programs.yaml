@@ -9,9 +9,8 @@ dependencies:
   - gmap=2020.10.14
   - gffcompare=0.11.2
   - bedops=2.4.39
-  - snakemake=6.0.0
-  - r-lncfinder=1.1.4
-  - libgfortran
+  - snakemake
+  - seqtk
   - python=3.6
   - pip
   - pip:
@@ -20,4 +19,5 @@ dependencies:
     - biopython
     - matplotlib
     - gtfparse
+    - scikit
 
