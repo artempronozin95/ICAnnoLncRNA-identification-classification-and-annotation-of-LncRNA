@@ -21,4 +21,4 @@ diamond:
     out: "data/output/diamond.outfmt6"
 tissue:
     organism: "ZMAY"
-    tpm: "ZM"
+    exp: "ZM"
