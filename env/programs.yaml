@@ -1,6 +1,5 @@
 name: ICAnnoLncRNA
 channels:
-  - heyarti
   - bioconda
   - conda-forge
   - defaults
