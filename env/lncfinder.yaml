@@ -1,0 +1,9 @@
+name: lnc
+channels:
+  - heyarti
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - r-lncfinder=1.1.4
+  - libgfortran
