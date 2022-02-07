@@ -10,7 +10,7 @@ dependencies:
   - bedops=2.4.39
   - snakemake=6.0.0
   - seqtk
-  - python=3.6
+  - python=3.8
   - pip
   - pip:
     - pandas
