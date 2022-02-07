@@ -34,7 +34,9 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 
 ## Installation 
-# Automatic
+Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
+# AutomaticAutomatic
+**recommended for clusters/servers**
 ```
 1. wget https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
 2. unzip main.zip
@@ -44,6 +46,7 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ```
 After these steps all necessary packages are installed. If you need update packages (**not recommended**), change the version of  packages after “=” (example - `snakemake=4.0.1 -> snakemake=6.0.0`), then `conda env update --file ./programs.yaml`. All necessary packages will be updated. Recomended on clusters, requires a lot of  processing power.
 # Step method
+**recommended for personal computer**
 ```
 1. conda update conda.
 2. conda create -n ICAnnoLncRNA python=3.6
