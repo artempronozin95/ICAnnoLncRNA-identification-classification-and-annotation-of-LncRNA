@@ -115,8 +115,10 @@ Input all necessary files into configuration file “config.yaml”:
   + `out:` - output file in `outfmt6` format. 
     + (Example: `out: "data/output/diamond.outfmt6"`)
 + tissue:
-  + `organism:` - choose between organisms in [Tissue analysis](#tissue-analysis) or input your organism. 
-    + (Example: `organism: "ZM"`)
+  + `organism` - choose species that you study form species [list](#species), or input your own species ID in same format
+    + (Example: `organism: "ZMAY"`)
+  + `exp:` - choose between organisms tissue experiments in [Tissue analysis](#tissue-analysis) or input your organism. 
+    + (Example: `exp: "ZM"`)
 ### Folders
 #### data/input
 Contain: 
@@ -152,6 +154,22 @@ Contain:
 
 ## Known LncRNA for database
 Folder `data/reference/data_index` contain lncRNA library that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA)
+
+## Species
++ *Medicago truncatula* - `MTRU`
++ *Glycine max* - `GMAX`
++ *Populis trichocarpa* - `PTRI`
++ *Arabidopsis thaliana* - `ATHA`
++ *Vitis vivifera* - `VVIN`
++ *Oryza sativa japonica* - `OSAT`
++ *Brachipodiumdistachion* - `BDIS`
++ *Sorghum bicolor* - `SBIC`
++ *Zea mays* - `ZMAY`
++ *Selaginella moellendorfii* - `SMOE`
++ *Physcomitrella patens* - `PPAT`
++ *Ostreococcus tauri*- `OTAU`
++ *Volvox* - `VOLV`
++ *Amborell trichopoda* - `ATRI`
 
 ## Tissue analysis
 File `tissue/SRX_all_org.tsv`, contains information about transcript experiment libraries with respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
