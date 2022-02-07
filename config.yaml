@@ -20,4 +20,5 @@ diamond:
     query: "data/output/unknown.fasta"
     out: "data/output/diamond.outfmt6"
 tissue:
-    organism: "ZM"
+    organism: "ZMAY"
+    tpm: "ZM"
