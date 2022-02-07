@@ -8,9 +8,9 @@ dependencies:
   - gmap=2020.10.14
   - gffcompare=0.11.2
   - bedops=2.4.39
-  - snakemake=6.0.0
+  - snakemake
   - seqtk
-  - python=3.8
+  - python=3.6
   - pip
   - pip:
     - pandas
