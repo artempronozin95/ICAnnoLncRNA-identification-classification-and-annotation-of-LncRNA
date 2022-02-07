@@ -19,17 +19,10 @@ BEDOPS is an open-source command-line toolkit that performs highly efficient and
 The Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. They can be seamlessly scaled to server, cluster, grid and cloud environments, without the need to modify the workflow definition. Finally, Snakemake workflows can entail a description of required software, which will be automatically deployed to any execution environment.
 
 `conda install -c bioconda snakemake`
-## [LncFinder](https://cran.r-project.org/web/packages/LncFinder/index.html)
-Long non-coding RNAs identification and analysis. Default models are trained with human, mouse and wheat datasets by employing SVM. Features are based on intrinsic composition of sequence, EIIP value (electron-ion interaction pseudopotential), and secondary structure. 
+### [seqtk](https://docs.csc.fi/apps/seqtk/)
+Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip.
 
-`conda install -c heyarti r-lncfinder`
-## [libgfortran](https://github.com/gcc-mirror/gcc/tree/master/libgfortran)
-The libgfortran contains a Fortran shared library, needed to run Fortran dynamically-linked programs, required for the Vertica LAPACK library addition.
-
-`conda install -c conda-forge libgfortran`
-### [seqtk]()
 `conda install -c bioconda seqtk`
-
 ## Python
 ### [pandas](https://pandas.pydata.org)
 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language.
@@ -51,9 +44,28 @@ Matplotlib is a comprehensive library for creating static, animated, and interac
 Parsing tools for GTF (gene transfer format) files.
 
 `conda install -c bioconda gtfparse`
-### [scikit]()
-`conda install -c anaconda scikit-learn`
+### [scikit](https://scikit-learn.org/stable/index.html)
+Simple and efficient tools for predictive data analysis
 
+`conda install -c anaconda scikit-learn`
 # cpc.yaml
 ## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
 Coding Potential Calculator (CPC), can assess the protein-coding potential of a transcript based on six biologically meaningful sequence features. Tenfold cross-validation on the training dataset and further testing on several large datasets showed that CPC can discriminate coding from noncoding transcripts with high accuracy.
+# lncfinder.yaml
+## [LncFinder](https://cran.r-project.org/web/packages/LncFinder/index.html)
+Long non-coding RNAs identification and analysis. Default models are trained with human, mouse and wheat datasets by employing SVM. Features are based on intrinsic composition of sequence, EIIP value (electron-ion interaction pseudopotential), and secondary structure. 
+
+`conda install -c heyarti r-lncfinder`
+## [libgfortran](https://github.com/gcc-mirror/gcc/tree/master/libgfortran)
+The libgfortran contains a Fortran shared library, needed to run Fortran dynamically-linked programs, required for the Vertica LAPACK library addition.
+
+`conda install -c conda-forge libgfortran`
+# alignment.yaml
+## [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
+
+`conda install -c bioconda blast`
+## [diamond](https://github.com/bbuchfink/diamond)
+DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.
+
+`conda install -c bioconda diamond`
