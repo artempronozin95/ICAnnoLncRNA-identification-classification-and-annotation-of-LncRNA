@@ -223,7 +223,7 @@ rule tissue:
        new="data/output/new_lncrna.fasta"
     params:
        org=expand("{org}", org=config['tissue']['organism']),
-       tpm=expand("{tpm}", tpm=config['tissue']['tpm'])
+       exp=expand("{exp}", exp=config['tissue']['exp'])
     output:
        "data/output/tissue/tissue_org.png"
     run:
@@ -233,7 +233,7 @@ rule tissue:
        shell("grep '>' {input.new} | awk -F '>' '{{print $2}}' > data/output/tissue/id.txt")
        shell("awk -F '\t' '{{print $1}}' {input.blast} | sort | uniq > data/output/tissue/all.txt")
        shell("grep -v -w -f data/output/tissue/all.txt data/output/tissue/id.txt > data/output/tissue/non.txt")
-       shell("python scripts/tissue.py {params.tpm}")
+       shell("python scripts/tissue.py {params.exp}")
        shell("rm data/output/tissue/cod.txt data/output/tissue/cons.txt data/output/tissue/non.txt")
 
 if config['diamond']['option'] == 'on':
