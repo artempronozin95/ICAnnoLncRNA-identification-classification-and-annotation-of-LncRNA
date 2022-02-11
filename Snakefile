@@ -159,7 +159,7 @@ rule Gmap_aling:
     output:
         "data/output/alignm_filter.gff"
     shell:
-        "python scripts/GMAP.py {input} {config[model]} {output}"
+        "scripts/parallel_gmap.sh {input} {config[model]} {output}"
         
 rule to_bed:
     input:
