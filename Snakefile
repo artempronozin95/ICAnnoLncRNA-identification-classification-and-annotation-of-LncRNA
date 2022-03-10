@@ -230,9 +230,6 @@ rule tissue:
        shell("""grep -v NonCoding {input.lnc} | awk -F ',' '{{print $1}}' | tr -d '"' > data/output/tissue/cod.txt""")
        shell("grep -v  {params.org} {input.blast} | awk -F '\t' '{{print $1}}' | sort | uniq > data/output/tissue/cons.txt")
        shell("grep {params.org} {input.blast} | awk -F '\t' '{{print $1}}' | sort | uniq > data/output/tissue/non.txt")
-       shell("grep '>' {input.new} | awk -F '>' '{{print $2}}' > data/output/tissue/id.txt")
-       shell("awk -F '\t' '{{print $1}}' {input.blast} | sort | uniq > data/output/tissue/all.txt")
-       shell("grep -v -w -f data/output/tissue/all.txt data/output/tissue/id.txt > data/output/tissue/non.txt")
        shell("python scripts/tissue.py {params.exp}")
        shell("rm data/output/tissue/cod.txt data/output/tissue/cons.txt data/output/tissue/non.txt")
 
