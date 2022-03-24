@@ -45,9 +45,7 @@ lncrna = open(sys.argv[4], 'w', encoding='utf-8')
 tmap = pd.read_csv(gff_tmap, sep='\t')
 tmap['group'] = np.nan
 tmap['group'][tmap['class_code'].isin(['x'])] = "exon antisense"
-tmap['group'][tmap['class_code'].isin(['s'])] = "intron antisense"
-tmap['group'][tmap['class_code'].isin(['e','o','j'])] = "exon"
-tmap['group'][tmap['class_code'].isin(['m', 'i', 'n'])] = "intron"
+tmap['group'][tmap['class_code'].isin(['i'])] = "intron"
 tmap['group'][tmap['class_code'].isin(['u'])] = "intergenic"
 tmap.dropna(subset = ["group"], inplace=True)
 print(tmap['group'].value_counts())
