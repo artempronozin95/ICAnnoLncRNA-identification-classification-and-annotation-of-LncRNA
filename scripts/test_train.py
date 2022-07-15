@@ -16,6 +16,11 @@ keys = list(cds.keys())
 pers_lnc=test_lnc/len((list(lnc.keys())))
 Y_train, Y_test = train_test_split(list(lnc.keys()), test_size=pers_lnc, shuffle=True)
 print(len(Y_test))
+if len(Y_train)*2 <= len(cds.keys())/5:
+    train_mrna = len(Y_train)*2
+else:
+    train_mrna = len(cds.keys())/5.2
+print(train_mrna)
 train_mrna = (len(Y_train)*2)+1000
 for w in Y_train:
     print(lnc[w].format('fasta'), end='', file=train_lnc)
