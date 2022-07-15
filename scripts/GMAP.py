@@ -32,8 +32,9 @@ if dir_check is True:
    gff_df = pd.read_csv('data/reference/intron_data/' + sys.argv[4] + '/' + sys.argv[4] + '.tsv', sep='\t', header=None)
    minn = gff_df[gff_df[0].str.contains("Min_intron_length")][1].to_list()
    maxx = gff_df[gff_df[0].str.contains("Max_intron_length")][1].to_list()
+   length = gff_df[gff_df[0].str.contains("Golden_Path_Length")][1].to_list()
    thr = 40
-   aling(data_base, target, minn, maxx, thr)
+   aling(data_base, target, minn, maxx, thr, length)
    print(target)
 else:
    print('use of reference statistics')
