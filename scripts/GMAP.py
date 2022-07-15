@@ -10,9 +10,12 @@ out_file = sys.argv[5]
 opt = sys.argv[7:]
 
 
-def aling(reference, transcripts, min, max, thr):
-    gmap_run = 'gmap'
-
+def aling(reference, transcripts, min, max, thr, lg):
+    if lg[0] > 2**32:
+       gmap_run = 'gmapl'
+       print('large genome use gmapl')
+    else:
+       gmap_run = 'gmap'
     path, base = os.path.split(reference)
     ref_label = os.path.splitext(base)[0]
     out = os.path.join(out_file)
@@ -37,5 +40,6 @@ else:
    gff_df = pd.read_csv(parameters, sep='\t', header=None)
    minn = gff_df[gff_df[0].str.contains("Min_intron_length")][1].to_list()
    maxx = gff_df[gff_df[0].str.contains("Max_intron_length")][1].to_list()
+   length = gff_df[gff_df[0].str.contains("Golden_Path_Length")][1].to_list()
    thr = 40
-   aling(data_base, target, minn, maxx, thr)
+   aling(data_base, target, minn, maxx, thr, length)
