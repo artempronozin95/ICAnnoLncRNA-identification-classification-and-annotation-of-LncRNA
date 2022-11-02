@@ -185,6 +185,7 @@ File `tissue/SRX_all_org.tsv`, contains information about 1241 transcript experi
 + SL - *Solanum lycopersicum*
 + ST - *Solanum tuberosum*
 + ZM - *Zea mays*
+
 If the libraries you are investigating (for other organism for exemple) are not in this file. You can add them to the data file in the same format 
 ```
 2	ST	SRX1478098	leaf
