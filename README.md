@@ -179,13 +179,25 @@ Folder `data/reference/data_index` contain lncRNA library that build on base of 
 + *Amborell trichopoda* - `ATRI`
 
 ## Tissue analysis
-File `tissue/SRX_all_org.tsv`, contains information about transcript experiment libraries with respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
+File `tissue/SRX_all_org.tsv`, contains information about 1241 transcript experiment libraries for 5 organisms with respect to specific tissue. In config.yaml need to choose between organisms that presented in SRX file:
 + HV - *Hordeum vulgare*
 + OS - *Oryza sativa*
 + SL - *Solanum lycopersicum*
 + ST - *Solanum tuberosum*
 + ZM - *Zea mays*
-Or input your organism in the same format file.
+If the libraries you are investigating (for other organism for exemple) are not in this file. You can add them to the data file in the same format 
+```
+2	ST	SRX1478098	leaf
+4	ZM	SRX339769	stomatal division zone
+5	ZM	SRX339787	ear
+6	ZM	SRX711129	leaf
+7	OS	SRX2582231	unknown
+8	ZM	SRX711024	ear
+9	ZM	SRX711053	leaf
+
+```
+Where 1 column - id, 2 - organism that you study, 3 - SRX library, 4 - tissue. 
+
 ## Output
 A typical structure of `Output` is follows:
 
