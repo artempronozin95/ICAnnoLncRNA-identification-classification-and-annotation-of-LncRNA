@@ -15,7 +15,8 @@
 ## Introduction
 Long non-coding RNAs (lncRNAs) typically defined as transcripts of more than 200 nucleotides in length and without any protein coding potential. These RNAs are involved in important plant development processes such as phosphate homeostasis, flowering, photomorphogenesis and stress response. However, their structural and functional properties are not clear. Information about lncRNA sequences and their expression typically obtained from RNA-seq experiments. To process these data relevant tools for automated lncRNA are required. 
 Here we propose ICAnnoLncRNA, pipeline for automatic identification, classification and annotation of plant lncRNAs. ICAnnoLncRNA, work with RNA-seq data and it was tested on 877 transcriptome libraries of *Zea mays*.
-This pipeline is only applicable to the Linux operating system.
+#### This pipeline is only applicable to the Linux operating system.
+
 The pipeline includes the following steps: 
 #### 1. Pre-processing.
 + Gmap index building.
