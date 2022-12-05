@@ -59,7 +59,7 @@ After these steps all necessary packages are installed. If you need update packa
 ```
 Install all packeges represented **[here](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/env/Dependencies%20information.md)**
 
-It is necessary to install (download program in pipeline folder): 
+# It is necessary to install (download program in pipeline folder): 
 + [CPC2](https://github.com/biocoder/CPC2)
 ```
 1. cd ./ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA-main
