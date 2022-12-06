@@ -135,8 +135,7 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `organism: "ZMAY"`)
   + `exp:` - choose between organisms tissue experiments in [Tissue analysis](#tissue-analysis) or input your organism. 
     + (Example: `exp: "ZM"`)
-  + `LncAPDB:` - File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs 
-    * [Known LncRNA] (#known-lncrna-for-database)
+  + `LncAPDB:` - File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs.
     + (Example: `exp: "LncAPDB: "tissue/index_and_newindex.csv""`)
 ### Folders
 #### data/input
