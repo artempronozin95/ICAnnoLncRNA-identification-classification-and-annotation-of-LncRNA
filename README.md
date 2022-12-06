@@ -112,6 +112,15 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `out: "data/output/alignm.gff"`)
 + `gff:` - gff file of reference genome. 
   + (Example: `gff: "data/reference/Zea_mays.AGPv4.40.gff"`)
++ blast: - standard BLAST parameters
+  + `evalue:` - evalue
+    + (Example: `evalue: 1e-50`)
+  + `max_target:` - max_target_seqs
+    + (Example: `max_target: 1`)
+  + `identity:` - perc_identity
+    + (Example: `identity: 30`)
+  + `threads:` - num_threads
+    + (Example: `threads: 1`)
 + diamond: - alignment of lncRNA on protein database (recommended to run after main pipeline)
   + `option:` - "on" (activate alignment step) or "off" (deactivate alignment step).
     +  (Example:  `option: "off"`)
@@ -122,10 +131,12 @@ Input all necessary files into configuration file “config.yaml”:
   + `out:` - output file in `outfmt6` format. 
     + (Example: `out: "data/output/diamond.outfmt6"`)
 + tissue:
-  + `organism` - choose species that you study form species [list](#species), or input your own species ID in same format
+  + `organism:` - choose species that you study form species [list](#species), or input your own species ID in same format
     + (Example: `organism: "ZMAY"`)
   + `exp:` - choose between organisms tissue experiments in [Tissue analysis](#tissue-analysis) or input your organism. 
     + (Example: `exp: "ZM"`)
+  + `LncAPDB:` - File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs (* [Known LncRNA] (#known-lncrna-for-database))
+    + (Example: `exp: "LncAPDB: "tissue/index_and_newindex.csv""`)
 ### Folders
 #### data/input
 Contain: 
