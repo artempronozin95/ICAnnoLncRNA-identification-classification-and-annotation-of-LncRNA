@@ -2,6 +2,7 @@
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Input](#input)
+* [Data](#data)
   * [Configuration](#configuration-file)
   * [Folders](#folders)
 * [Running the pipeline](#work-start)
@@ -91,6 +92,19 @@ All three sets are necessary for build
 1. Reference genome of the species in `FASTA` format.
 2. Annotation of the species in `GFF/GTF` format.
 
+## Data
+Additional data is presented here: https://data.mendeley.com/v1/datasets/fnk8pmp2yz/draft?a=13de1dfb-b631-42f3-8108-f3de2f50fd90
+It includes: 
++ blast.outfmt6 - Blastn results. Contain homologs with known lncRNAs sequences from the LncAPDB library.
++ index_and_newindex.fasta - index of PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA databases compared with new index for LncAPDB library. 
++ LncAPDB.fasta - lncRNA sequences of LncAPDB library in fasta format.
++ lncrna_class.tmap - novel lncRNAs divided into gffcompare classes.
++ lncrna_coordinats.bed - coordinates of novel lncRNAs on chromosomes.
++ lncrna_intron_size.tsv - intron size of novel lncRNAs and their coordinates on the genome.
++ new_lncrna.fasta - novel lncRNA sequences in fasta format.
++ new_lncrna_locus.loci - locus of lncRNA sequences on genome.
++ transcriptome_lib.txt - Maize transcriptome libraries. 
+
 ### Configuration file
 Input all necessary files into configuration file “config.yaml”:
 + `lnc:` - known LncRNA sequences of studied organisms in `FASTA` format. 
@@ -171,7 +185,7 @@ Contain:
 + *Oryza_sativa*
 
 ## Known LncRNA for database
-Folder `data/reference/data_index` contain lncRNA library that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA)
+Folder `data/reference/data_index` contain lncRNA library (LncAPDB.fasta) that build on base of 5 lncRNA databases (PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA). The library you can find here: https://data.mendeley.com/v1/datasets/fnk8pmp2yz/draft?a=13de1dfb-b631-42f3-8108-f3de2f50fd90
 
 ## Species
 + *Medicago truncatula* - `MTRU`
