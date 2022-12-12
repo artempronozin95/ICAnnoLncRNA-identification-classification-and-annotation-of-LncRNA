@@ -35,7 +35,7 @@ The pipeline includes the following steps:
 The pipeline is implemented using the workflow management system [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), which provides ability to platform-independent installation and execution of the software.
 
 ## Schematic diagram
-![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
+![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/image/Figure 1.png)
 
 ## Installation 
 Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
