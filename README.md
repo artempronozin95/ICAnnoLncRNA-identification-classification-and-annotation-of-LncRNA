@@ -94,6 +94,7 @@ All three sets are necessary for build
 
 ## Data
 Additional data is presented here: https://data.mendeley.com/datasets/fnk8pmp2yz/2
+
 It includes: 
 + blast.outfmt6 - Blastn results. Contain homologs with known lncRNAs sequences from the LncAPDB library.
 + index_and_newindex.fasta - index of PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA databases compared with new index for LncAPDB library. 
