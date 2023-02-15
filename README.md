@@ -60,7 +60,7 @@ After these steps all necessary packages are installed. If you need update packa
 ```
 Install all packeges represented **[here](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/env/Dependencies%20information.md)**
 
-# It is necessary to install (download program in pipeline folder): 
+# It is necessary to install and download (download program in pipeline folder): 
 + [CPC2](https://github.com/biocoder/CPC2)
 ```
 1. cd ./ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA-main
@@ -82,6 +82,10 @@ Install all packeges represented **[here](https://github.com/artempronozin95/ICA
 10. change $opt_plot = 1 on $opt_plot = 0 and $opt_short = 0 on $opt_short = 1.
 11. save.
 ```
++[LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/2)
+
+download LncAPDB.fasta into `data/reference/data_index` folder.
+
 ## Input
 ### Genome sequence
 1. Known LncRNA transcripts of the species in `FASTA` format. File with lncRNA from the public database of lncRNA. For example [Ensembl](https://www.ensembl.org/index.html), [EVLncRNAs v2](https://www.sdklab-biophysics-dzu.net/EVLncRNAs2/).
