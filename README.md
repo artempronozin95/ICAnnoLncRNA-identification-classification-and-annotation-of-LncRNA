@@ -82,7 +82,7 @@ Install all packeges represented **[here](https://github.com/artempronozin95/ICA
 10. change $opt_plot = 1 on $opt_plot = 0 and $opt_short = 0 on $opt_short = 1.
 11. save.
 ```
-+[LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/2)
++ [LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/2)
 
 download LncAPDB.fasta into `data/reference/data_index` folder.
 
