@@ -93,7 +93,7 @@ All three sets are necessary for build
 2. Annotation of the species in `GFF/GTF` format.
 
 ## Data
-Additional data is presented here: https://data.mendeley.com/v1/datasets/fnk8pmp2yz/draft?a=13de1dfb-b631-42f3-8108-f3de2f50fd90
+Additional data is presented here: https://data.mendeley.com/datasets/fnk8pmp2yz/2
 It includes: 
 + blast.outfmt6 - Blastn results. Contain homologs with known lncRNAs sequences from the LncAPDB library.
 + index_and_newindex.fasta - index of PNRD, CANTATAdb, GREENC, PlncDB, EVLncRNA databases compared with new index for LncAPDB library. 
