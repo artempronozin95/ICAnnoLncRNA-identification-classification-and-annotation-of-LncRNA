@@ -42,9 +42,9 @@ Install only **programs.yaml** environment. Other environments will install auto
 # Automatic
 **recommended for clusters/servers**
 ```
-1. wget https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
+1. wget https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
 2. unzip main.zip
-3. cd ./ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA-main
+3. cd ./ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA-main
 4. conda env create --file env/programs.yaml
 5. conda activate ICAnnoLncRNA
 ```
