@@ -7,7 +7,7 @@ if config['diamond']['option'] == 'on':
  rule all_1:
     input:
         "data/input/test_train/sets.txt",
-        "data/output/cpc.txt",
+        "data/output/cpc",
         "data/input/test_train/best_model.txt",
         "data/output/Noncoding.fasta",
         "data/output/lncFinder.csv",
@@ -30,7 +30,7 @@ if config['diamond']['option'] == 'off':
  rule all_2:
     input:
         "data/input/test_train/sets.txt",
-        "data/output/cpc.txt",
+        "data/output/cpc",
         "data/output/Noncoding.fasta",
         "data/output/lncFinder.csv",
         "data/output/statistic.csv",
@@ -98,7 +98,7 @@ rule cpc:
     input:
         expand("{sequence}", sequence=config['sequence'])
     output:
-        "data/output/cpc.txt"
+        "data/output/cpc"
     conda:
         "env/cpc.yaml"
     shell:
