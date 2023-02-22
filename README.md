@@ -322,3 +322,22 @@ Activating conda environment /home/pronozin/ICAnnoLncRNA---identification-classi
 /bin/bash: activate:
 ```
 **Solution**: type `conda install conda` in ICAnnoLncRNA environment.
+
+```
+rule Gmap_build:
+    input: data/reference/Zea_mays.AGPv4.dna.toplevel.fa, data/reference/Zea_mays.AGPv4.40.gff
+    output: data/output/statistic.csv
+    jobid: 5
+...
+
+Error in rule Gmap_build:
+    jobid: 5
+    output: data/output/statistic.csv
+
+RuleException:
+CalledProcessError in line 123 of ...:
+Command ' set -euo pipefail; ...'
+```
+**Solution**: update gtfparse package. `Example: conda install -c bioconda gtfparse`
+
+
