@@ -19,4 +19,5 @@ dependencies:
     - matplotlib
     - gtfparse
     - scikit-learn
+    - seaborn
 
