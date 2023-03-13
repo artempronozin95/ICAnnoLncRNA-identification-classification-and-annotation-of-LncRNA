@@ -23,6 +23,12 @@ The Snakemake workflow management system is a tool to create reproducible and sc
 Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. It seamlessly parses both FASTA and FASTQ files which can also be optionally compressed by gzip.
 
 `conda install -c bioconda seqtk`
+
+### [bioawk](https://anaconda.org/bioconda/bioawk)
+BWK awk modified for biological data.
+
+`conda install -c bioconda bioawk`
+
 ## Python
 ### [pandas](https://pandas.pydata.org)
 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language.
@@ -52,11 +58,6 @@ Simple and efficient tools for predictive data analysis
 Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
 
 `conda install -c anaconda seaborn`
-
-### [bioawk](https://anaconda.org/bioconda/bioawk)
-BWK awk modified for biological data.
-
-`conda install -c bioconda bioawk`
 
 # cpc.yaml
 ## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
