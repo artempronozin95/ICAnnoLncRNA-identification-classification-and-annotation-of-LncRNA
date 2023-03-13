@@ -52,6 +52,12 @@ Simple and efficient tools for predictive data analysis
 Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
 
 `conda install -c anaconda seaborn`
+
+### [bioawk](https://anaconda.org/bioconda/bioawk)
+BWK awk modified for biological data.
+
+`conda install -c bioconda bioawk`
+
 # cpc.yaml
 ## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
 Coding Potential Calculator (CPC), can assess the protein-coding potential of a transcript based on six biologically meaningful sequence features. Tenfold cross-validation on the training dataset and further testing on several large datasets showed that CPC can discriminate coding from noncoding transcripts with high accuracy.
