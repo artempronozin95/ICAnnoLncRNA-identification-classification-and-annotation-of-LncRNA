@@ -3,7 +3,6 @@ channels:
   - bioconda
 dependencies:
   - blast
-  - diamond
   - pip
   - pip:
     - pandas
