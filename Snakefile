@@ -245,7 +245,7 @@ rule blast:
     input:
        "data/output/new_lncRNA/True_lncRNA.bed",
        "data/output/gffcompare_first/gffcmp.filter_alignm.bed.tmap",
-       "data/reference/data_index/LncAPDB_v2.fasta",
+       "data/reference/data_index/LncAPDB.fasta",
        expand("{sequence}", sequence=config['sequence'])
     params:
        evalue=expand("{evalue}", evalue=config['blast']['evalue']),
