@@ -57,7 +57,7 @@ tmap = pd.read_csv(gff_tmap, sep='\t')
 # lncRNA classification graf
 query = query[query[7].str.contains("gene")]
 tmap = tmap[tmap['qry_gene_id'].str.contains("path1")]
-name_tmap = tmap['qry_gene_id'].str.rsplit('.',1, expand=True)
+name_tmap = tmap['qry_gene_id'].str.rsplit('.', expand=True)
 tmap[['name','seq']] = name_tmap[[0,1]]
 #tmap = tmap[tmap['seq'].str.contains("path1")]
 tmap = tmap[tmap['name'].isin(query[10])]
