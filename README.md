@@ -223,7 +223,7 @@ Where 1 column - id, 2 - organism that you study, 3 - SRX library, 4 - tissue.
 
 ## Output
 A typical structure of `Output` is follows:
-
+```
 ├── gffcompare_first
 │   ├── gffcmp.annotated.gtf
 │   ├── gffcmp.filter_alignm.bed.refmap
@@ -284,7 +284,7 @@ A typical structure of `Output` is follows:
     ├── transc_cod.csv
     ├── transc.csv
     └── transc_non.csv
-
+```
 * Folder "tissue", contains lncRNA distribution in tissue.
 
 Groups of output files
