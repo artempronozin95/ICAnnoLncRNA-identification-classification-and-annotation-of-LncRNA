@@ -14,8 +14,8 @@
 * [Output](#output)
 * [Errors](#errors)
 ## Introduction
-Long non-coding RNAs (lncRNAs) typically defined as transcripts of more than 200 nucleotides in length and without any protein coding potential. These RNAs are involved in important plant development processes such as phosphate homeostasis, flowering, photomorphogenesis and stress response. However, their structural and functional properties are not clear. Information about lncRNA sequences and their expression typically obtained from RNA-seq experiments. To process these data relevant tools for automated lncRNA are required. 
-Here we propose ICAnnoLncRNA, pipeline for automatic identification, classification and annotation of plant lncRNAs. ICAnnoLncRNA, work with RNA-seq data and it was tested on 877 transcriptome libraries of *Zea mays*.
+Long non-coding RNAs (lncRNAs) are RNA molecules longer than 200 nucleotides that do not encode proteins. Experimental studies have shown the diversity and importance of lncRNA functions in plants. To expand knowledge about lncRNAs in other species, computational pipelines that allow for standardised data-processing steps in a mode that does not require user control up to the final result were actively developed recently. These advancements enable wider functionality for lncRNA data identification and analysis. In the present work, we propose the ICAnnoLncRNA pipeline for automatic identification, classification and annotation of plant lncRNAs in transcriptomic sequences assembled from high-throughput RNA sequencing (RNA-seq) data.
+
 #### This pipeline is only applicable to the Linux operating system.
 
 The pipeline includes the following steps: 
@@ -23,19 +23,21 @@ The pipeline includes the following steps:
 + Gmap index building.
 + LncFinder model building.
 #### 2. LncRNA filtering.
++ Length filtering
 + LncFinder predicting.
 + CPC2 predicting.
-+ ORF detection.
-+ Transmembrane domains detection.
 + GMAP alignment on reference genome.
++ Filtering erros/noise.
++ Filtering possible transposable elements (TEs).
 #### 3. LncRNA annotation.
 + Classification gffcompare.
 + Blastn alignment.
++ Analysis of lncRNA expression.
 
 The pipeline is implemented using the workflow management system [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html), which provides ability to platform-independent installation and execution of the software.
 
 ## Schematic diagram
-![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
+![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline_schema.png)
 
 ## Installation 
 Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
@@ -68,20 +70,6 @@ Install all packeges represented **[here](https://github.com/artempronozin95/ICA
 3. unzip master.zip
 4. mv CPC2-master CPC2
 ```
-+ [TMHMM](https://services.healthtech.dtu.dk/service.php?TMHMM-2.0)
-```
-1. click on Download.
-2. register.
-3. check up your mail.
-4. cd ./ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA-main
-5. wget the link from mail.
-6. tar -xf tmhmm-2.0c.Linux.tar.gz
-7. mv tmhmm-2.0c tmhmm
-8. cd tmhmm/bin
-9. open tmhmm.
-10. change $opt_plot = 1 on $opt_plot = 0 and $opt_short = 0 on $opt_short = 1.
-11. save.
-```
 + [LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/2)
 
 download LncAPDB.fasta into `data/reference/data_index` folder.
@@ -90,11 +78,15 @@ download LncAPDB.fasta into `data/reference/data_index` folder.
 ### Genome sequence
 1. Known LncRNA transcripts of the species in `FASTA` format. File with lncRNA from the public database of lncRNA. For example [Ensembl](https://www.ensembl.org/index.html), [EVLncRNAs v2](https://www.sdklab-biophysics-dzu.net/EVLncRNAs2/).
 2. Known protein coding sequences of the species in `FASTA` format. File with protein coding sequences from a public database. For example [Ensembl](https://www.ensembl.org/index.html).
-3. RNA-seq transcripts of the species in `FASTA` format. This file contains transcripts obtained after de novo assembly of transcriptome. For example file that we provide, [30k_zey.fasta](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/data/input/30k_zey.zip), obtained by [Trinity](https://github.com/trinityrnaseq/trinityrnaseq) assembly.
+3. RNA-seq transcripts of the species in `FASTA` format. This file contains transcripts obtained after assembly of transcriptome. For example file that we provide, [30k_zey.fasta](https://github.com/artempronozin95/ICAnnoLncRNA---identification-classification-and-annotation-of-LncRNA/blob/main/data/input/30k_zey.zip), obtained by [Trinity](https://github.com/trinityrnaseq/trinityrnaseq) assembly.
 All three sets are necessary for build 
 ### Reference genome
 1. Reference genome of the species in `FASTA` format.
 2. Annotation of the species in `GFF/GTF` format.
+### Additional data
+1. TE coordinats on the reference genome, example [Zea_N_merged.bed](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/data/reference/N_coords/Zea_N_merged.bed)
+2. File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs. example [index_and_newindex.csv](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/tissue/index_and_newindex.csv)
+3. Annotation of the organism transcriptome libraries by tissue type, example [SRX_all_org.tsv](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/tissue/SRX_all_org.tsv)
 
 ## Data
 Additional data is presented here: https://data.mendeley.com/datasets/fnk8pmp2yz/2
@@ -140,22 +132,20 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `identity: 30`)
   + `threads:` - num_threads
     + (Example: `threads: 1`)
-+ diamond: - alignment of lncRNA on protein database (recommended to run after main pipeline)
-  + `option:` - "on" (activate alignment step) or "off" (deactivate alignment step).
-    +  (Example:  `option: "off"`)
-  + `database:` - protein database in `FASTA` format. 
-    + (Example: `database: "data/reference/data_base/Arabidopsis_thaliana.TAIR10.pep.all.fa"`)
-  + `query:` - lncRNA transcripts in `FASTA` format. 
-    + (Example: `query: "data/output/unknown.fasta"`)
-  + `out:` - output file in `outfmt6` format. 
-    + (Example: `out: "data/output/diamond.outfmt6"`)
++ TE_coords: - if there is no TE coordinats information - recomended to turn off this step.
+   + `option:` "on" - turn on or turn off this step (on/off) 
+   + `coords:` - TE coordinat
+     + (Example: `coords: "data/reference/N_coords/Zea_N_merged.bed"`)
 + tissue:
   + `organism:` - choose species that you study form species [list](#species), or input your own species ID in same format
     + (Example: `organism: "ZMAY"`)
   + `exp:` - choose between organisms tissue experiments in [Tissue analysis](#tissue-analysis) or input your organism. 
     + (Example: `exp: "ZM"`)
   + `LncAPDB:` - File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs.
-    + (Example: `exp: "LncAPDB: "tissue/index_and_newindex.csv""`)
+    + (Example: `LncAPDB: "tissue/index_and_newindex.csv"`)
+  + `SRX_exp:`
+    + (Example: `SRX_exp: "tissue/SRX_all_org.tsv"`)
+    
 ### Folders
 #### data/input
 Contain: 
@@ -169,6 +159,7 @@ Contain:
 + `data_index` folder with library of known lncRNA from databases.
 + `intron_data` folder with structure information of organisms.
 + `models` folder with model for lncFinder.
++ `N_coords` folder with TE coordinats
 ## Work start
   #### 1. `snakemake -j 2`
   `-j` or  `--cores` -  Use at most N CPU cores/jobs in parallel. If N is omitted or ‘all’, the limit is set to the number of available CPU cores.
@@ -232,46 +223,67 @@ Where 1 column - id, 2 - organism that you study, 3 - SRX library, 4 - tissue.
 ## Output
 A typical structure of `Output` is follows:
 
-    output/
-        ├── alignm.bed
-        ├── alignm_filter.gff
-        ├── anti.png                                                                                                                         
-        ├── blast.outfmt6                                                                                                                    
-        ├── class                                                                                                                                                
-        │   ├── class_org.png                                                                                                                                    
-        ├── classes.png                                                                                                                      
-        ├── Coding.fasta                                                                                                                     
-        ├── cpc.txt
-        ├── exon_size.png
-        ├── filter_alignm.bed
-        ├── gffcmp.alignm_filter.gff.tmap
-        ├── gffcmp.loci
-        ├── intron_size.png
-        ├── itron_coordin.tsv
-        ├── lncFinder.csv
-        ├── new_lncrna.fasta
-        ├── Noncoding.fasta
-        ├── Noncoding_trans_out.fasta
-        ├── not_trans.csv
-        ├── number_of_exon.png
-        ├── number_of_lncRNA.png
-        ├── ORF.orf
-        ├── pipe
-        │   ├── pipe.png
-        ├── reference.bed
-        ├── statistic_bed.tsv
-        ├── statistic.csv
-        ├── tissue
-        │   ├── tissue_org.csv
-        │   ├── tissue_org.png
-        │   ├── transc_cod.csv
-        │   ├── transc.csv
-        │   └── transc_non.csv
-        ├── tmhmm.csv
-        └── trans.csv
-        
-* Folder "class", contains lncRNA class distribution.
-* Folder "pipe", contains lncRNA and protein coding genes distribution after prediction.
+├── gffcompare_first
+│   ├── gffcmp.annotated.gtf
+│   ├── gffcmp.filter_alignm.bed.refmap
+│   ├── gffcmp.filter_alignm.bed.tmap
+│   ├── gffcmp.loci
+│   ├── gffcmp.stats
+│   └── gffcmp.tracking
+├── gffcompare_second
+│   ├── gff.annotated.gtf
+│   ├── gff.filter_alignm.bed.refmap
+│   ├── gff.filter_alignm.bed.tmap
+│   ├── gff.loci
+│   ├── gff.stats
+│   └── gff.tracking
+├── GMAP
+│   ├── alignm.bed
+│   ├── alignm_filter.gff
+│   ├── filter_alignm.bed
+│   ├── gmap_build.err.log
+│   ├── gmap_build.out.log
+│   ├── gmap.out.log
+│   ├── reference.bed
+│   └── statistic.csv
+├── lncRNA_prediction
+│   ├── Coding.fasta
+│   ├── cpc.txt
+│   ├── lncFinder.csv
+│   └── Noncoding.fasta
+├── lncRNA_structure
+│   ├── anti.png
+│   ├── exon_size.png
+│   ├── intron_size.png
+│   ├── itron_coordin.tsv
+│   ├── long_transcripts.bed
+│   ├── number_of_exon.png
+│   ├── number_of_lncRNA.png
+│   └── statistic_bed.tsv
+├── loci
+│   ├── lncRNA_before_loci.bed
+│   └── lncRNA_loci.bed
+├── new_lncRNA
+│   ├── blast.outfmt6
+│   ├── classes.png
+│   ├── LncAPDB_vs_blast.csv
+│   ├── new_lncrna.fasta
+│   └── True_lncRNA.bed
+├── TE_finder
+│   ├── Lnc_aling_with_TE.tsv
+│   └── lncRNA_after_loci.bed
+└── tissue
+    ├── all.txt
+    ├── cod.txt
+    ├── cons.txt
+    ├── id.txt
+    ├── non.txt
+    ├── tissue_org.csv
+    ├── tissue_org.png
+    ├── transc_cod.csv
+    ├── transc.csv
+    └── transc_non.csv
+
 * Folder "tissue", contains lncRNA distribution in tissue.
 
 Groups of output files
