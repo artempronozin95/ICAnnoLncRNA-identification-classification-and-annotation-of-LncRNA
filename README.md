@@ -40,9 +40,9 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ![Test Image 1](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/image/Pipeline.png)
 
 ## Installation 
-Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
 # Automatic
 **recommended for clusters/servers**
+Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
 ```
 1. wget https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
 2. unzip main.zip
