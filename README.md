@@ -42,6 +42,7 @@ The pipeline is implemented using the workflow management system [Snakemake](htt
 ## Installation 
 # Automatic
 **recommended for clusters/servers**
+
 Install only **programs.yaml** environment. Other environments will install automatically when ICAnnoLncRNA start work.
 ```
 1. wget https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/archive/refs/heads/main.zip
