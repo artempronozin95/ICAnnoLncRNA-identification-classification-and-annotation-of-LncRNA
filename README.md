@@ -144,7 +144,7 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `exp: "ZM"`)
   + `LncAPDB:` - File with sequence ID from public lncRNA databases connected to IDs in library of known lncRNAs.
     + (Example: `LncAPDB: "tissue/index_and_newindex.csv"`)
-  + `SRX_exp:`
+  + `SRX_exp:` - Annotation of the transcriptome libraries by tissue type and gene expression levels.
     + (Example: `SRX_exp: "tissue/SRX_all_org.tsv"`)
     
 ### Folders
@@ -289,40 +289,96 @@ A typical structure of `Output` is follows:
 
 Groups of output files
 
-**Image:** 
-+ `intron_size.png` - lncRNA intron size distribution.
-+ `classes.png` - distribution of lncRNA classes.    
-+ `anti.png` - allocation of antisense lncRNA alignment to target gene structure.       
-+ `exon_size.png` - lncRNA exon size distribution. 
-+ `number_of_exon.png` - the ratio of the number of exons per lncRNA.
-+ `number_of_lncRNA.png` - number of lncRNA per chromosome.                                                                                                 
+**1. Pre-processing.**
 
-**Prediction:**
-+ `lncFinder.csv` - Transcripts predicted as lncRNA by lncFinder, `CSV` format.
-+ `cpc.txt` - Transcripts predicted as lncRNA by CPC2, `TXT` format.
-+ `Coding.fasta` - Transcripts predicted as protein coding by lncFinder, `FASTA` format. 
-+ `Noncoding.fasta` - Transcripts predicted as lncRNA by lncFinder, `FASTA` format. 
+Pre-processing performed in input directory:
++ filtered_seq.fasta - filter transcripts with length < 200 nt.
++ new_vs_old_id.tsv - new ID and old ID of transcripts.
++ test_train - folder of lncFinder model studie. 
 
-**Transmembrane segment:**
-+ `not_trans.csv` - id of transcripts without transmembrane domains, `CSV` format.
-+ `ORF.orf` - reading frames of predicted lncRNA, `ORF` format.
-+ `trans.csv` - id of transcripts with transmembrane domains, `CSV` format.
-+ `tmhmm.csv` - TMHMM results, `CSV` format.
-+ `Noncoding_trans_out.fasta` -set of lncRNA transcripts without transcripts with transmembrane domains, `FASTA` format.
+**2. LncRNA filtering.**
 
-**Alignment:**                                                                                         
-+ `alignm.bed` - results of lncRNA transcripts alignment on reference genome by GMAP, 'BED' format.
-+ `alignm_filter.gff` - results of lncRNA transcripts alignment on reference genome without long intron transcripts, `GFF` format.
-+ `itron_coordin.tsv` - coordinates lncRNA introns, `TSV` format.
-+ `statistic_bed.tsv` - lncRNA intron statistic, `TSV` format.
-+ `statistic.csv` - lncRNA structure statistic, `CSV` format.
-+ `blast.outfmt6` - BLASTn results in `outfmt6` format.
+***lncRNA_prediction***
 
-**Classification:**
-+ `gffcmp.alignm_filter.gff.tmap` - lncRNA classification by gffcompare, `TMAP` format.
-+ `gffcmp.loci` - lncRNA loci.
-+ `reference.bed` - reference genome annotation, `BED` format.
-+ `new_lncrna.fasta` - classified lncRNA transcripts,`FASTA` format.
+`lncRNA_prediction`
++ Coding.fasta - Transcripts predicted as protein coding by lncFinder, `FASTA` format. 
++ cpc.txt - Transcripts predicted as lncRNA by CPC2, `TXT` format.
++ lncFinder.csv - Transcripts predicted as lncRNA by lncFinder, `CSV` format.
++ Noncoding.fasta - Transcripts predicted as lncRNA by lncFinder, `FASTA` format.
++ CPC2 predicting.
+
+***GMAP alignment on reference genome.***
+
+`GMAP`
++ alignm.bed - results of lncRNA transcripts alignment on reference genome by GMAP, 'BED' format.
++ alignm_filter.gff - results of lncRNA transcripts alignment on reference genome without long intron transcripts, `GFF` format.
++ filter_alignm.bed - results of lncRNA transcripts alignment on reference genome without long intron transcripts, `BED` format.
++ gmap_build.err.log
++ gmap_build.out.log
++ gmap.out.log
++ reference.bed - reference genome annotation, `BED` format.
++ statistic.csv - lncRNA structure statistic, `CSV` format.
+
+***Filtering erros/noise.***
+
+`gffcompare_first` - classification of the candidate lncRNA sequences by their location in the genome relative to a protein-coding genes, more information can be found on [gffcompare](https://ccb.jhu.edu/software/stringtie/gffcompare.shtml)
++ gffcmp.annotated.gtf - Gffcompare reports a GTF file containing the “union” of all transcript IDs in each sample.
++ gffcmp.filter_alignm.bed.refmap - This tab-delimited file lists, for each reference transcript, which query transcript either fully or partially matches that reference transcript.
++ gffcmp.filter_alignm.bed.tmap - This tab delimited file lists the most closely matching reference transcript for each query transcript. 
++ gffcmp.loci - Represent loci of transcripts. 
++ gffcmp.stats
++ gffcmp.tracking - This file matches transcripts up between samples.
+
+`loci`
++ lncRNA_before_loci.bed - the candidate lncRNA sequences before merging into loci, `BED` format.
++ lncRNA_loci.bed - loci of the candidate lncRNA, `BED` format.
+
+`gffcompare_second`- classification of the candidate lncRNA sequences by their location in the genome relative to lncRNA loci.
++ gff.annotated.gtf
++ gff.filter_alignm.bed.refmap
++ gff.filter_alignm.bed.tmap
++ gff.loci
++ gff.stats
++ gff.tracking
+
+***Filtering possible transposable elements (TEs).***
+
+`TE_finder`
++ Lnc_aling_with_TE.tsv - the candidate lncRNA sequences that mapped on TE, `TSV` format.
++ lncRNA_after_loci.bed - the candidate lncRNA sequences that are completely matched (`=` - class of gff compare) with lncRNA loci, `BED` format.
+
+**3. LncRNA annotation.**
+
+***lncRNA_structure***
++ anti.png - allocation of antisense lncRNA alignment to target gene structure.
++ exon_size.png - lncRNA exon size distribution. 
++ intron_size.png - lncRNA intron size distribution.
++ itron_coordin.tsv - coordinates lncRNA introns, `TSV` format.
++ long_transcripts.bed - transcripts with length > 5000 nt, `BED` format.
++ number_of_exon.png - the ratio of the number of exons per lncRNA.
++ number_of_lncRNA.png - number of lncRNA per chromosome.
++ statistic_bed.tsv - lncRNA intron statistic, `TSV` format.
+
+***new_lncRNA***
++ blast.outfmt6 - BLASTn results in `outfmt6` format.
++ classes.png - distribution of lncRNA classes. 
++ LncAPDB_vs_blast.csv - known lncRNAs that were predicted.
++ new_lncrna.fasta - identified lncRNA transcripts,`FASTA` format. (**final result**)
++ True_lncRNA.bed - identified lncRNA transcripts,`BED` format.
+
+***tissue***
++ all.txt - lncRNA that have homologs with known lncRNAs.
++ cod.txt - ID of proteine coding transcripts.
++ cons.txt - ID of the lncRNAs similar to lncRNAs from other species (conserved sequences)
++ id.txt - ID of all input transcripts
++ non.txt - ID of the lncRNAs similar only to known studied organism sequences (non-conserved sequences)
++ tissue_org.csv - all in one (proteine coding, conserved lncRNAs, non-conserved lncRNAs) 
++ tissue_org.png - heatmap of transcript libraries tissue type.
++ transc_cod.csv - proteine coding transcript libraries tissue type.
++ transc.csv - conserved lncRNAs transcript libraries tissue type.
++ transc_non.csv - non-conserved lncRNAs transcript libraries tissue type.
++ Blastn alignment.
++ Analysis of lncRNA expression.
 
 ## Errors
 ```
