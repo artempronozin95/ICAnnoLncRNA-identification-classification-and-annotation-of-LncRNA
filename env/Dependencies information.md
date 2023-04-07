@@ -29,6 +29,16 @@ BWK awk modified for biological data.
 
 `conda install -c bioconda bioawk`
 
+### [pybedtools](https://daler.github.io/pybedtools/)
+The BEDTools suite of programs is widely used for genomic interval manipulation or “genome algebra”. pybedtools wraps and extends BEDTools and offers feature-level manipulations from within Python.
+ 
+`conda install -c bioconda pybedtools`
+
+### [viennarna](https://www.tbi.univie.ac.at/RNA/)
+The ViennaRNA Package consists of a C code library and several stand-alone programs for the prediction and comparison of RNA secondary structures.
+
+`conda install -c bioconda viennarna`
+
 ## Python
 ### [pandas](https://pandas.pydata.org)
 pandas aims to be the fundamental high-level building block for doing practical, real world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis / manipulation tool available in any language.
@@ -58,25 +68,3 @@ Simple and efficient tools for predictive data analysis
 Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
 
 `conda install -c anaconda seaborn`
-
-# cpc.yaml
-## [CPC2](https://github.com/biocoder/CPC2/blob/master/README.md)
-Coding Potential Calculator (CPC), can assess the protein-coding potential of a transcript based on six biologically meaningful sequence features. Tenfold cross-validation on the training dataset and further testing on several large datasets showed that CPC can discriminate coding from noncoding transcripts with high accuracy.
-# lncfinder.yaml
-## [LncFinder](https://cran.r-project.org/web/packages/LncFinder/index.html)
-Long non-coding RNAs identification and analysis. Default models are trained with human, mouse and wheat datasets by employing SVM. Features are based on intrinsic composition of sequence, EIIP value (electron-ion interaction pseudopotential), and secondary structure. 
-
-`conda install -c heyarti r-lncfinder`
-## [libgfortran](https://github.com/gcc-mirror/gcc/tree/master/libgfortran)
-The libgfortran contains a Fortran shared library, needed to run Fortran dynamically-linked programs, required for the Vertica LAPACK library addition.
-
-`conda install -c conda-forge libgfortran`
-# alignment.yaml
-## [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
-BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
-
-`conda install -c bioconda blast`
-## [diamond](https://github.com/bbuchfink/diamond)
-DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data.
-
-`conda install -c bioconda diamond`
