@@ -26,4 +26,5 @@ tissue:
     organism: "ZMAY"
     exp: "ZM"
     LncAPDB: "tissue/index_and_newindex.csv"
+    SRX_exp: "tissue/SRX_all_org.tsv"
 
