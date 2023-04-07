@@ -349,7 +349,7 @@ Pre-processing performed in input directory:
 
 **3. LncRNA annotation.**
 
-***lncRNA_structure***
+`lncRNA_structure`
 + anti.png - allocation of antisense lncRNA alignment to target gene structure.
 + exon_size.png - lncRNA exon size distribution. 
 + intron_size.png - lncRNA intron size distribution.
@@ -359,14 +359,14 @@ Pre-processing performed in input directory:
 + number_of_lncRNA.png - number of lncRNA per chromosome.
 + statistic_bed.tsv - lncRNA intron statistic, `TSV` format.
 
-***new_lncRNA***
+`new_lncRNA`
 + blast.outfmt6 - BLASTn results in `outfmt6` format.
 + classes.png - distribution of lncRNA classes. 
 + LncAPDB_vs_blast.csv - known lncRNAs that were predicted.
 + new_lncrna.fasta - identified lncRNA transcripts,`FASTA` format. (**final result**)
 + True_lncRNA.bed - identified lncRNA transcripts,`BED` format.
 
-***tissue***
+`tissue`
 + all.txt - lncRNA that have homologs with known lncRNAs.
 + cod.txt - ID of proteine coding transcripts.
 + cons.txt - ID of the lncRNAs similar to lncRNAs from other species (conserved sequences)
