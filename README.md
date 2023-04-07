@@ -115,7 +115,7 @@ Input all necessary files into configuration file “config.yaml”:
   + (Example: `sequence: "data/input/Zea.fasta"`)
 + `structure:` - need to choose whether to use secondary structure in model building or not. Choose between `DNA` or `SS` (secondary structure). 
   + (Example: `structure: "DNA"`)
-+ gmap:
++ `gmap:`
   + `gff_reference:` - reference genome annotation in `GFF` format. 
     + (Example: `gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"`)
   + `reference:` - reference genome in `FASTA` format.
@@ -124,7 +124,7 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `out: "data/output/alignm.gff"`)
 + `gff:` - gff file of reference genome. 
   + (Example: `gff: "data/reference/Zea_mays.AGPv4.40.gff"`)
-+ blast: - standard BLAST parameters
++ `blast:` - standard BLAST parameters
   + `evalue:` - evalue
     + (Example: `evalue: 1e-50`)
   + `max_target:` - max_target_seqs
@@ -133,11 +133,11 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `identity: 30`)
   + `threads:` - num_threads
     + (Example: `threads: 1`)
-+ TE_coords: - if there is no TE coordinats information - recomended to turn off this step.
++ `TE_coords:` - if there is no TE coordinats information - recomended to turn off this step.
    + `option:` "on" - turn on or turn off this step (on/off) 
    + `coords:` - TE coordinat
      + (Example: `coords: "data/reference/N_coords/Zea_N_merged.bed"`)
-+ tissue:
++ `tissue:`
   + `organism:` - choose species that you study form species [list](#species), or input your own species ID in same format
     + (Example: `organism: "ZMAY"`)
   + `exp:` - choose between organisms tissue experiments in [Tissue analysis](#tissue-analysis) or input your organism. 
