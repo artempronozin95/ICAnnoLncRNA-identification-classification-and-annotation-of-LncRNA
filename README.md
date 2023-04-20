@@ -305,7 +305,6 @@ Pre-processing performed in input directory:
 + cpc.txt - Transcripts predicted as lncRNA by CPC2, `TXT` format.
 + lncFinder.csv - Transcripts predicted as lncRNA by lncFinder, `CSV` format.
 + Noncoding.fasta - Transcripts predicted as lncRNA by lncFinder, `FASTA` format.
-+ CPC2 predicting.
 
 ***GMAP alignment on reference genome.***
 
