@@ -71,7 +71,7 @@ Install all packeges represented **[here](https://github.com/artempronozin95/ICA
 3. unzip master.zip
 4. mv CPC2-master CPC2
 ```
-+ [LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/2)
++ [LncAPDB.fasta](https://data.mendeley.com/datasets/fnk8pmp2yz/3)
 
 download LncAPDB.fasta into `data/reference/data_index` folder.
 
@@ -90,7 +90,7 @@ All three sets are necessary for build
 3. Annotation of the organism transcriptome libraries by tissue type, example [SRX_all_org.tsv](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/tissue/SRX_all_org.tsv)
 
 ## Data
-Additional data is presented here: https://data.mendeley.com/datasets/fnk8pmp2yz/2
+Additional data is presented here: https://data.mendeley.com/datasets/fnk8pmp2yz/3
 
 It includes: 
 + blast.outfmt6 - Blastn results. Contain homologs with known lncRNAs sequences from the LncAPDB library.
