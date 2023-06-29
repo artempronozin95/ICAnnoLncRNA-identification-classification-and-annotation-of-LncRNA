@@ -36,7 +36,7 @@ elif 64 < size <= 256:
     k = 13
 elif 256 < size <= 1000:
     k = 14
-elif 1000 < size <= 4000:
+elif 1000 < size <= 10000:
     k = 15
 print("k" ,'\t', str(k), file=statistic)
 
