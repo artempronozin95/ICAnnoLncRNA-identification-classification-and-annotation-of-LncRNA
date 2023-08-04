@@ -146,6 +146,12 @@ Input all necessary files into configuration file “config.yaml”:
     + (Example: `LncAPDB: "tissue/index_and_newindex.csv"`)
   + `SRX_exp:` - Annotation of the transcriptome libraries by tissue type and gene expression levels.
     + (Example: `SRX_exp: "tissue/SRX_all_org.tsv"`)
++ `expression`:
+  + `option`: "on" - turn on or turn off this step (on/off) 
+  + `path`: - path to expression data.
+    + (Example: `path: "expressin/Kallisto"`)
+  + `calculation_type`: - type of expression data. There three types: 1.Kallisto 2.Htseq 3.Own type of data.
+    + (Example: `path: "Kallisto"`)
     
 ### Folders
 #### data/input
@@ -220,6 +226,27 @@ If the libraries you are investigating (for other organism for exemple) are not 
 
 ```
 Where 1 column - id, 2 - organism that you study, 3 - SRX library, 4 - tissue. 
+
+## Expression and entropy
+For this step there is necessary to provide expression data for every transcript. Thus recommended `turn off` this step at first run of the pipeline. After receiving expression data `turn on` this step and pipeline will calculete entropy and espression statistic. In config.yaml need to choose between three types of table building:
++ Kallisto - result are received by means of Kallisto program. Results should be presented as on example:
+```
+├── SRR957466
+│   ├── abundance.h5
+│   ├── abundance.tsv
+│   └── run_info.json
+├── SRR957467
+│   ├── abundance.h5
+│   ├── abundance.tsv
+│   └── run_info.json
+└── SRR957468
+    ├── abundance.h5
+    ├── abundance.tsv
+    └── run_info.json
+```  
+
+
+
 
 ## Output
 A typical structure of `Output` is follows:
