@@ -10,7 +10,7 @@ if config['expression']['option'] == 'off':
 rule all:
     input:
         "data/input/test_train/sets.txt",
-#        "data/output/lncRNA_prediction/cpc.txt",
+        "data/output/lncRNA_prediction/cpc.txt",
         "data/input/test_train/best_model.txt",
         "data/input/test_train/dirs.txt",
         "data/input/filtered_seq.fasta",
@@ -86,17 +86,17 @@ rule lncFinder:
     shell:
         "scripts/Chunk_dataframe.sh {input} {params}"
 
-#rule cpc:
-#    input:
-#        "data/input/filtered_seq.fasta"
-#    params:
-#        "data/output/lncRNA_prediction/cpc"
-#    output:
-#        "data/output/lncRNA_prediction/cpc.txt"
-#    conda:
-#        "env/cpc.yaml"
-#    shell:
-#        "CPC2/bin/CPC2.py -i {input} -r -o {params}"
+rule cpc:
+    input:
+        "data/input/filtered_seq.fasta"
+    params:
+        "data/output/lncRNA_prediction/cpc"
+    output:
+        "data/output/lncRNA_prediction/cpc.txt"
+    conda:
+        "env/cpc.yaml"
+    shell:
+        "CPC2/bin/CPC2.py -i {input} -r -o {params}"
         
 rule take_noncoding:
     input:
