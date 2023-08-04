@@ -1,0 +1,34 @@
+lnc:
+   "data/input/lincrna.fasta"
+cds:
+   "data/input/7000_len_mRNA.fasta"
+model:
+   "Zea_mays"
+sequence:
+   "data/input/15_lib_trinity.fasta"
+structure:
+   "DNA"
+gmap: 
+    gff_reference: "data/reference/Zea_mays.AGPv4.40.gff"
+    reference: "data/reference/Zea_mays.AGPv4.dna.toplevel.fa"
+    out: "data/output/alignm.gff"
+gff:
+    "data/reference/Zea_mays.AGPv4.40.gff"
+blast:
+    evalue: 1e-50
+    max_target: 1
+    identity: 30
+    threads: 1
+TE_coords:
+    option: "on"
+    coords: "data/reference/N_coords/Zea_N_merged.bed"
+tissue:
+    organism: "ZMAY"
+    exp: "ZM"
+    LncAPDB: "tissue/index_and_newindex.csv"
+    SRX_exp: "tissue/SRX_all_org.tsv"
+expression:
+    option: "on"
+    path: "expressin/Htseq"
+    calculation_type: "own"
+    
