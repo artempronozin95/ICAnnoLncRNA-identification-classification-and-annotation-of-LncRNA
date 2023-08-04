@@ -216,20 +216,20 @@ File `tissue/SRX_all_org.tsv`, contains information about 1241 transcript experi
 
 If the libraries you are investigating (for other organism for exemple) are not in this file. You can add them to the data file in the same format 
 ```
-2	ST	SRX1478098	leaf
-4	ZM	SRX339769	stomatal division zone
-5	ZM	SRX339787	ear
-6	ZM	SRX711129	leaf
-7	OS	SRX2582231	unknown
-8	ZM	SRX711024	ear
-9	ZM	SRX711053	leaf
+ST	SRX1478098	leaf
+ZM	SRX339769	stomatal division zone
+ZM	SRX339787	ear
+ZM	SRX711129	leaf
+OS	SRX2582231	unknown
+ZM	SRX711024	ear
+ZM	SRX711053	leaf
 
 ```
 Where 1 column - id, 2 - organism that you study, 3 - SRX library, 4 - tissue. 
 
 ## Expression and entropy
 For this step there is necessary to provide expression data for every transcript. Thus recommended `turn off` this step at first run of the pipeline. After receiving expression data `turn on` this step and pipeline will calculete entropy and espression statistic. In config.yaml need to choose between three types of table building:
-+ Kallisto - result are received by means of Kallisto program. Results should be presented as on example:
++ `Kallisto` - result are received by means of Kallisto program. Results should be presented as on example:
 ```
 ├── SRR957466
 │   ├── abundance.h5
@@ -244,7 +244,15 @@ For this step there is necessary to provide expression data for every transcript
     ├── abundance.tsv
     └── run_info.json
 ```  
-
++ `Htseq` - result are received by means of Htseq program. Results should be presented as on example:
+```
+├── SRR1586686.txt
+└── SRR504468.txt
+```
++ `own` - In this case user should build table by himself. Table should looks like as [table](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/example/expr_table.tsv) presented in example folder. Where:
++ type - `mRNA` - is protein coding genes. `noncons` - nonconserved lncRNAs. `consv` - conserved lncRNAs.
++ all tissue that needed. In example table, value is a median of expression for libraries that belong to tissue in column name.
++ `target_id` - ID of the transcript. it is necessary that the transcripts correspond to the results of the pipeline.
 
 
 
