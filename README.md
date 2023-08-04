@@ -250,65 +250,63 @@ For this step there is necessary to provide expression data for every transcript
 └── SRR504468.txt
 ```
 + `own` - In this case user should build table by himself. Table should looks like as [table](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/example/expr_table.tsv) presented in example folder. Where:
-+ type - `mRNA` - is protein coding genes. `noncons` - nonconserved lncRNAs. `consv` - conserved lncRNAs.
++ `type` - `mRNA` - is protein coding genes. `noncons` - nonconserved lncRNAs. `consv` - conserved lncRNAs.
 + all tissue that needed. In example table, value is a median of expression for libraries that belong to tissue in column name.
 + `target_id` - ID of the transcript. it is necessary that the transcripts correspond to the results of the pipeline.
-
-
 
 ## Output
 A typical structure of `Output` is follows:
 ```
 ├── gffcompare_first
-│   ├── gffcmp.annotated.gtf
-│   ├── gffcmp.filter_alignm.bed.refmap
-│   ├── gffcmp.filter_alignm.bed.tmap
-│   ├── gffcmp.loci
-│   ├── gffcmp.stats
-│   └── gffcmp.tracking
+    ├── gffcmp.annotated.gtf
+    ├── gffcmp.filter_alignm.bed.refmap
+    ├── gffcmp.filter_alignm.bed.tmap
+    ├── gffcmp.loci
+    ├── gffcmp.stats
+    └── gffcmp.tracking
 ├── gffcompare_second
-│   ├── gff.annotated.gtf
-│   ├── gff.filter_alignm.bed.refmap
-│   ├── gff.filter_alignm.bed.tmap
-│   ├── gff.loci
-│   ├── gff.stats
-│   └── gff.tracking
+    ├── gff.annotated.gtf
+    ├── gff.filter_alignm.bed.refmap
+    ├── gff.filter_alignm.bed.tmap
+    ├── gff.loci
+    ├── gff.stats
+    └── gff.tracking
 ├── GMAP
-│   ├── alignm.bed
-│   ├── alignm_filter.gff
-│   ├── filter_alignm.bed
-│   ├── gmap_build.err.log
-│   ├── gmap_build.out.log
-│   ├── gmap.out.log
-│   ├── reference.bed
-│   └── statistic.csv
+    ├── alignm.bed
+    ├── alignm_filter.gff
+    ├── filter_alignm.bed
+    ├── gmap_build.err.log
+    ├── gmap_build.out.log
+    ├── gmap.out.log
+    ├── reference.bed
+    └── statistic.csv
 ├── lncRNA_prediction
-│   ├── Coding.fasta
-│   ├── cpc.txt
-│   ├── lncFinder.csv
-│   └── Noncoding.fasta
+    ├── Coding.fasta
+    ├── cpc.txt
+    ├── lncFinder.csv
+    └── Noncoding.fasta
 ├── lncRNA_structure
-│   ├── anti.png
-│   ├── exon_size.png
-│   ├── intron_size.png
-│   ├── itron_coordin.tsv
-│   ├── long_transcripts.bed
-│   ├── number_of_exon.png
-│   ├── number_of_lncRNA.png
-│   └── statistic_bed.tsv
+    ├── anti.png
+    ├── exon_size.png
+    ├── intron_size.png
+    ├── itron_coordin.tsv
+    ├── long_transcripts.bed
+    ├── number_of_exon.png
+    ├── number_of_lncRNA.png
+    └── statistic_bed.tsv
 ├── loci
-│   ├── lncRNA_before_loci.bed
-│   └── lncRNA_loci.bed
+    ├── lncRNA_before_loci.bed
+    └── lncRNA_loci.bed
 ├── new_lncRNA
-│   ├── blast.outfmt6
-│   ├── classes.png
-│   ├── LncAPDB_vs_blast.csv
-│   ├── new_lncrna.fasta
-│   └── True_lncRNA.bed
+    ├── blast.outfmt6
+    ├── classes.png
+    ├── LncAPDB_vs_blast.csv
+    ├── new_lncrna.fasta
+    └── True_lncRNA.bed
 ├── TE_finder
-│   ├── Lnc_aling_with_TE.tsv
-│   └── lncRNA_after_loci.bed
-└── tissue
+    ├── Lnc_aling_with_TE.tsv
+    └── lncRNA_after_loci.bed
+├── tissue
     ├── all.txt
     ├── cod.txt
     ├── cons.txt
@@ -319,6 +317,12 @@ A typical structure of `Output` is follows:
     ├── transc_cod.csv
     ├── transc.csv
     └── transc_non.csv
+├── expression
+    ├── box_plot.png
+    ├── entropy.png
+    ├── expr_table.tsv
+    ├── hist_expr.png
+    └── table_type.txt
 ```
 * Folder "tissue", contains lncRNA distribution in tissue.
 
@@ -413,6 +417,13 @@ Pre-processing performed in input directory:
 + transc_non.csv - non-conserved lncRNAs transcript libraries tissue type.
 + Blastn alignment.
 + Analysis of lncRNA expression.
+
+`expression`
++ box_plot.png - box plot diagrams of gene expression.
++ entropy.png - density plot of Shannon entropy.
++ expr_table.tsv - table with expression data for every transcript in every tissue.
++ hist_expr.png - density plot of maximum expression levels of transcripts.
++ table_type.txt - type of expression results.
 
 ## Errors
 ```
