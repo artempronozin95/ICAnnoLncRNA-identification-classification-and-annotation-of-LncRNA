@@ -29,3 +29,7 @@
 + tmhmm.sh - chunk large file with transcripts in ORF format. Run TMHMM. 
 
 + TP_FN.py - evaluates lncFinder model.
+
++ expr_table_form.py - if table with expression in tissue is not exist, script will build this table.
+
++ Expraession_entropy.R - calculates entropy and renders expression.
