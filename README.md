@@ -11,6 +11,7 @@
 * [Known LncRNA](#known-lncrna-for-database)
 * [Species](#species)
 * [Tissue analysis](#tissue-analysis)
+* [Expression and entropy](#expression-and-entropy)
 * [Output](#output)
 * [Errors](#errors)
 ## Introduction
