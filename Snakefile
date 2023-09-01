@@ -288,7 +288,7 @@ rule tissue:
        shell("grep {params.org} {input.blast} | awk -F '\t' '{{print $1}}' | sort | uniq > data/output/tissue/non.txt")
        shell("grep '>' {input.new} | awk -F '>' '{{print $2}}' > data/output/tissue/id.txt")
        shell("awk -F '\t' '{{print $1}}' {input.blast} | sort | uniq > data/output/tissue/all.txt")
-       shell("grep -v -w -f data/output/tissue/all.txt data/output/tissue/id.txt > data/output/tissue/non.txt")
+       shell("grep -v -w -f data/output/tissue/all.txt data/output/tissue/id.txt > data/output/tissue/non_aling.txt")
        shell("python scripts/tissue.py {params.exp} {input.blast} {params.LncAPDB} {params.old_new} {params.SRX}")
  
 if config['expression']['option'] == 'on':
