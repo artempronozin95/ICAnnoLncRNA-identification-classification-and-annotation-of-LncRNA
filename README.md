@@ -455,4 +455,20 @@ Command ' set -euo pipefail; ...'
 ```
 **Solution**: update gtfparse package. `Example: conda install -c bioconda gtfparse`
 
+```
+error while loading shared libraries: libgfortran.so.3
+```
+This error connected with updating of libraries of libgfortran at Conda database. There are two solutions:
+**Solution**: Try these two commands:
+```
+locate libgfortran.so.3
+locate libgfortran
+```
+If you manage to locate libgfortran.so.3, you can make a symbolic link to it inside a known library directory. If you find this library but it ends in a higher number than 3, say libgfortran.so.4, go to that directory and make a symbolic link :
+```
+ln -s libgfortran.so.4 libgfortran.so.3
+```
+If error still occurs, then download this files [libgfortran.so.3](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/example/libgfortran.so.3), [libgfortran.so.3.0.0](https://github.com/artempronozin95/ICAnnoLncRNA-identification-classification-and-annotation-of-LncRNA/blob/main/example/libgfortran.so.3.0.0) and paste them into **lib** folder of your conda environment where R situated.
+For example ```conda/60023710/lib``` or ```miniconda3/envs/lnc/lib```
+
 
