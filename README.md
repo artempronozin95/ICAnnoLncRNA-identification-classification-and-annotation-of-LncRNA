@@ -458,7 +458,8 @@ Command ' set -euo pipefail; ...'
 ```
 error while loading shared libraries: libgfortran.so.3
 ```
-This error connected with updating of libraries of libgfortran at Conda database. There are two solutions:
+This error connected with updating of libraries of libgfortran at Conda database.
+
 **Solution**: Try these two commands:
 ```
 locate libgfortran.so.3
