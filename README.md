@@ -438,6 +438,7 @@ Activating conda environment /home/pronozin/ICAnnoLncRNA---identification-classi
 ```
 **Solution**: type `conda install conda` in ICAnnoLncRNA environment.
 
+*************************************************************************************
 ```
 rule Gmap_build:
     input: data/reference/Zea_mays.AGPv4.dna.toplevel.fa, data/reference/Zea_mays.AGPv4.40.gff
@@ -455,6 +456,7 @@ Command ' set -euo pipefail; ...'
 ```
 **Solution**: update gtfparse package. `Example: conda install -c bioconda gtfparse`
 
+*************************************************************************************
 ```
 error while loading shared libraries: libgfortran.so.3
 ```
